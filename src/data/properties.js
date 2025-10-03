@@ -54,9 +54,9 @@ export const properties = [
       PROPERTY_FEATURES.PLAYGROUND,
     ],
     images: [
-      '/images/properties/estrella-1.jpg',
-      '/images/properties/estrella-2.jpg',
-      '/images/properties/estrella-3.jpg',
+      'https://images.unsplash.com/photo-1600596542815-ffad4c1539a9?w=800&h=600&fit=crop',
+      'https://images.unsplash.com/photo-1600607687939-ce8a6c25118c?w=800&h=600&fit=crop',
+      'https://images.unsplash.com/photo-1600585154340-be6161a56a0c?w=800&h=600&fit=crop',
     ],
     coordinates: {
       lat: 40.1301,
@@ -86,8 +86,8 @@ export const properties = [
       PROPERTY_FEATURES.AIR_CONDITIONING,
     ],
     images: [
-      '/images/properties/encinas-1.jpg',
-      '/images/properties/encinas-2.jpg',
+      'https://images.unsplash.com/photo-1512917774080-9991f1c4c750?w=800&h=600&fit=crop',
+      'https://images.unsplash.com/photo-1460317442991-0ec209397118?w=800&h=600&fit=crop',
     ],
     coordinates: {
       lat: 40.2375,
@@ -118,9 +118,9 @@ export const properties = [
       PROPERTY_FEATURES.HEATING,
     ],
     images: [
-      '/images/properties/mirador-1.jpg',
-      '/images/properties/mirador-2.jpg',
-      '/images/properties/mirador-3.jpg',
+      'https://images.unsplash.com/photo-1600607687644-aac4c3eac7f4?w=800&h=600&fit=crop',
+      'https://images.unsplash.com/photo-1600573472591-ee6b68d14c68?w=800&h=600&fit=crop',
+      'https://images.unsplash.com/photo-1600566753190-17f0baa2a6c3?w=800&h=600&fit=crop',
     ],
     coordinates: {
       lat: 40.3063,
@@ -152,8 +152,8 @@ export const properties = [
       PROPERTY_FEATURES.SECURITY,
     ],
     images: [
-      '/images/properties/aticos-1.jpg',
-      '/images/properties/aticos-2.jpg',
+      'https://images.unsplash.com/photo-1545324418-cc1a3fa10c00?w=800&h=600&fit=crop',
+      'https://images.unsplash.com/photo-1502005229762-cf1b2da7c5d6?w=800&h=600&fit=crop',
     ],
     coordinates: {
       lat: 40.4168,
@@ -185,8 +185,8 @@ export const properties = [
       PROPERTY_FEATURES.HEATING,
     ],
     images: [
-      '/images/properties/villa-1.jpg',
-      '/images/properties/villa-2.jpg',
+      'https://images.unsplash.com/photo-1613490493576-7fde63acd811?w=800&h=600&fit=crop',
+      'https://images.unsplash.com/photo-1580587771525-78b9dba3b914?w=800&h=600&fit=crop',
     ],
     coordinates: {
       lat: 40.5569,
@@ -215,7 +215,7 @@ export const properties = [
       PROPERTY_FEATURES.ELEVATOR,
     ],
     images: [
-      '/images/properties/parque-1.jpg',
+      'https://images.unsplash.com/photo-1601760562234-9814eea6663a?w=800&h=600&fit=crop',
     ],
     coordinates: {
       lat: 40.3223,

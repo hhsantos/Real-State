@@ -3,6 +3,7 @@ import { Helmet } from 'react-helmet-async';
 import PropertyCard from '../components/property/PropertyCard';
 import PropertyFilters from '../components/property/PropertyFilters';
 import { SkeletonPropertyCard } from '../components/ui/Skeleton';
+import { Breadcrumbs } from '../components/ui';
 import { properties, filterProperties } from '../data/properties';
 import { Grid, List } from 'lucide-react';
 import { Button } from '../components/ui';
@@ -21,6 +22,11 @@ export default function Properties() {
   const [filteredProperties, setFilteredProperties] = useState(properties);
   const [loading, setLoading] = useState(false);
   const [viewMode, setViewMode] = useState('grid'); // 'grid' or 'list'
+
+  const breadcrumbItems = [
+    { label: 'Inicio', path: '/' },
+    { label: 'Promociones' }
+  ];
 
   const handleFiltersChange = (filters) => {
     setLoading(true);
@@ -46,7 +52,8 @@ export default function Properties() {
         {/* Header */}
         <div className="bg-primary-600 text-white py-12">
           <div className="container-custom">
-            <h1 className="text-4xl font-bold mb-4">Nuestras Promociones</h1>
+            <Breadcrumbs items={breadcrumbItems} variant="dark" />
+            <h1 className="text-4xl font-bold mb-4 mt-4">Nuestras Promociones</h1>
             <p className="text-xl text-primary-100">
               Encuentra tu hogar ideal entre nuestras {properties.length} promociones
             </p>

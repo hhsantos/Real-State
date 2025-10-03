@@ -6,7 +6,7 @@ import {
   MapPin, Bed, Bath, Maximize, Home as HomeIcon, 
   Calendar, ArrowLeft, Phone, Mail 
 } from 'lucide-react';
-import { Button, Card, CardBody, Skeleton, Lightbox } from '../components/ui';
+import { Button, Card, CardBody, Skeleton, Lightbox, Breadcrumbs } from '../components/ui';
 import { formatPrice, formatDate } from '../utils/helpers';
 
 /**
@@ -32,6 +32,12 @@ export default function PropertyDetail() {
 
   const availableForSale = property.status !== 'Vendido';
 
+  const breadcrumbItems = [
+    { label: 'Inicio', path: '/' },
+    { label: 'Promociones', path: '/propiedades' },
+    { label: property.title }
+  ];
+
   const openLightbox = (index) => {
     setLightboxIndex(index);
     setLightboxOpen(true);
@@ -45,17 +51,18 @@ export default function PropertyDetail() {
       </Helmet>
 
       <div className="bg-gray-50 min-h-screen">
-        {/* Back button */}
+        {/* Back button & Breadcrumbs */}
         <div className="bg-white border-b">
           <div className="container-custom py-4">
             <Button
               variant="ghost"
               onClick={() => navigate('/propiedades')}
-              className="inline-flex items-center"
+              className="inline-flex items-center mb-3"
             >
               <ArrowLeft className="h-4 w-4 mr-2" aria-hidden="true" />
               Volver al listado
             </Button>
+            <Breadcrumbs items={breadcrumbItems} />
           </div>
         </div>
 

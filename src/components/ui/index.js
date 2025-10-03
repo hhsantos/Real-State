@@ -14,6 +14,7 @@ export { default as Modal, ModalFooter } from './Modal';
 export { default as Toast, ToastContainer } from './Toast';
 export { default as Tooltip } from './Tooltip';
 export { Lightbox } from './Lightbox';
+export { default as Breadcrumbs } from './Breadcrumbs';
 export {
   default as Skeleton,
   SkeletonText,

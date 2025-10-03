@@ -22,6 +22,14 @@ export default function Header() {
 
   return (
     <header className="sticky top-0 z-50 bg-white border-b border-gray-200 shadow-sm">
+      {/* MUST: Skip to content link per AGENTS.md */}
+      <a
+        href="#main-content"
+        className="sr-only focus:not-sr-only focus:absolute focus:top-4 focus:left-4 focus:z-50 focus:px-4 focus:py-2 focus:bg-primary-600 focus:text-white focus:rounded-lg focus:shadow-lg"
+      >
+        Saltar al contenido principal
+      </a>
+      
       <nav className="container-custom" aria-label="Navegación principal">
         <div className="flex items-center justify-between h-16 md:h-20">
           {/* Logo - SHOULD: Right-click surfaces brand assets per AGENTS.md */}

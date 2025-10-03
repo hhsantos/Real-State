@@ -8,6 +8,9 @@ import Properties from './pages/Properties';
 import PropertyDetail from './pages/PropertyDetail';
 import About from './pages/About';
 import Contact from './pages/Contact';
+import Legal from './pages/Legal';
+import Privacy from './pages/Privacy';
+import Cookies from './pages/Cookies';
 import ComponentsDemo from './pages/ComponentsDemo';
 import NotFound from './pages/NotFound';
 
@@ -43,6 +46,11 @@ function App() {
                 <Route path="/nosotros" element={<About />} />
                 <Route path="/contacto" element={<Contact />} />
                 <Route path="/components" element={<ComponentsDemo />} />
+                
+                {/* Legal pages */}
+                <Route path="/aviso-legal" element={<Legal />} />
+                <Route path="/privacidad" element={<Privacy />} />
+                <Route path="/cookies" element={<Cookies />} />
                 
                 {/* 404 - MUST: No dead ends per AGENTS.md */}
                 <Route path="*" element={<NotFound />} />

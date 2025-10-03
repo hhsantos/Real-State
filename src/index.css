@@ -1,0 +1,229 @@
+@import 'tailwindcss';
+
+/* Custom Properties - Design Tokens */
+@theme {
+  /* Colors - Primary (Azul corporativo ALISI) */
+  --color-primary-50: #EEF2F7;
+  --color-primary-100: #D6E0EC;
+  --color-primary-200: #B4C7DC;
+  --color-primary-300: #8AA9CA;
+  --color-primary-400: #6890BB;
+  --color-primary-500: #475590;
+  --color-primary-600: #3B4A7A;
+  --color-primary-700: #2F3B61;
+  --color-primary-800: #232C49;
+  --color-primary-900: #171F32;
+  
+  /* Colors - Secondary (Verde modernizado) */
+  --color-secondary-50: #F7F8E8;
+  --color-secondary-100: #ECEFD1;
+  --color-secondary-200: #D9E0A3;
+  --color-secondary-300: #C5D075;
+  --color-secondary-400: #B7C355;
+  --color-secondary-500: #A8B43A;
+  --color-secondary-600: #8B9630;
+  --color-secondary-700: #6E7826;
+  --color-secondary-800: #515A1C;
+  --color-secondary-900: #343C13;
+  
+  /* Colors - Accent */
+  --color-accent-500: #5B8FD9;
+  --color-accent-600: #4A7BC4;
+}
+
+:root {
+  /* Typography */
+  --font-sans: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+  --font-mono: 'Geist Mono', 'JetBrains Mono', monospace;
+  
+  /* Touch targets - MUST per AGENTS.md */
+  --touch-target-min: 44px;      /* Mobile minimum */
+  --touch-target-desktop: 24px;  /* Desktop minimum */
+  
+  /* Animation durations - MUST honor prefers-reduced-motion */
+  --duration-fast: 150ms;
+  --duration-normal: 250ms;
+  --duration-slow: 350ms;
+  
+  /* Easings */
+  --ease-in: cubic-bezier(0.4, 0, 1, 1);
+  --ease-out: cubic-bezier(0, 0, 0.2, 1);
+  --ease-in-out: cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+/* Honor prefers-reduced-motion - MUST per AGENTS.md */
+@media (prefers-reduced-motion: reduce) {
+  :root {
+    --duration-fast: 0ms;
+    --duration-normal: 0ms;
+    --duration-slow: 0ms;
+  }
+  
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+}
+
+/* Base styles */
+* {
+  box-sizing: border-box;
+}
+
+html {
+  /* Prevent font scaling in landscape on iOS */
+  -webkit-text-size-adjust: 100%;
+  /* Improve text rendering */
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+body {
+  margin: 0;
+  padding: 0;
+  min-height: 100vh;
+  font-family: var(--font-sans);
+  font-size: 1rem; /* 16px - MUST for mobile inputs per AGENTS.md */
+  line-height: 1.5;
+  color: #111827;
+  background-color: #ffffff;
+  /* Prevent double-tap zoom - MUST per AGENTS.md */
+  touch-action: manipulation;
+  /* Custom tap highlight color */
+  -webkit-tap-highlight-color: rgba(71, 85, 144, 0.1);
+}
+
+/* Focus styles - MUST be visible per AGENTS.md */
+:focus-visible {
+  outline: 2px solid #475590;
+  outline-offset: 2px;
+}
+
+/* Remove default focus for mouse users, keep for keyboard */
+:focus:not(:focus-visible) {
+  outline: none;
+}
+
+/* Links - MUST be semantic per AGENTS.md */
+a {
+  color: #3B4A7A;
+  text-decoration: none;
+  transition: color var(--duration-fast) var(--ease-out);
+}
+
+a:hover {
+  color: #2F3B61;
+  text-decoration: underline;
+}
+
+/* Buttons - Ensure proper touch targets */
+button {
+  /* MUST: Touch targets ≥24px desktop, ≥44px mobile per AGENTS.md */
+  min-height: var(--touch-target-desktop);
+  font-family: inherit;
+  cursor: pointer;
+  touch-action: manipulation;
+}
+
+@media (max-width: 768px) {
+  button {
+    min-height: var(--touch-target-min);
+  }
+}
+
+/* Input styles - MUST font-size ≥16px on mobile per AGENTS.md */
+input,
+textarea,
+select {
+  font-family: inherit;
+  font-size: 1rem; /* 16px minimum for mobile */
+}
+
+/* Headings hierarchy - MUST per AGENTS.md */
+h1, h2, h3, h4, h5, h6 {
+  font-weight: 600;
+  line-height: 1.25;
+  /* scroll-margin-top for anchor links - MUST per AGENTS.md */
+  scroll-margin-top: 5rem;
+}
+
+h1 {
+  font-size: 3rem;
+  @media (max-width: 768px) {
+    font-size: 1.875rem;
+  }
+}
+
+h2 {
+  font-size: 2.25rem;
+  @media (max-width: 768px) {
+    font-size: 1.5rem;
+  }
+}
+
+h3 {
+  font-size: 1.875rem;
+  @media (max-width: 768px) {
+    font-size: 1.25rem;
+  }
+}
+
+/* Tabular numbers for comparisons - MUST per AGENTS.md */
+.tabular-nums {
+  font-variant-numeric: tabular-nums;
+}
+
+/* Skip to content link - MUST per AGENTS.md */
+.skip-to-content {
+  position: absolute;
+  top: -40px;
+  left: 0;
+  background: #475590;
+  color: white;
+  padding: 0.5rem 1rem;
+  text-decoration: none;
+  z-index: 100;
+}
+
+.skip-to-content:focus {
+  top: 0;
+}
+
+/* Utility classes */
+.container-custom {
+  width: 100%;
+  max-width: 1280px;
+  margin-left: auto;
+  margin-right: auto;
+  padding-left: 1rem;
+  padding-right: 1rem;
+}
+
+@media (min-width: 768px) {
+  .container-custom {
+    padding-left: 2rem;
+    padding-right: 2rem;
+  }
+}
+
+/* Custom scrollbar (optional, respects system preferences) */
+@media (prefers-reduced-motion: no-preference) {
+  html {
+    scroll-behavior: smooth;
+  }
+}
+
+/* Print styles */
+@media print {
+  body {
+    background: white;
+  }
+  
+  a[href]::after {
+    content: " (" attr(href) ")";
+  }
+}

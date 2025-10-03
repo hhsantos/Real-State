@@ -1,11 +1,12 @@
 import { useParams, Link, useNavigate } from 'react-router-dom';
 import { Helmet } from 'react-helmet-async';
+import { useState } from 'react';
 import { getPropertyById } from '../data/properties';
 import { 
   MapPin, Bed, Bath, Maximize, Home as HomeIcon, 
   Calendar, ArrowLeft, Phone, Mail 
 } from 'lucide-react';
-import { Button, Card, CardBody, Skeleton } from '../components/ui';
+import { Button, Card, CardBody, Skeleton, Lightbox } from '../components/ui';
 import { formatPrice, formatDate } from '../utils/helpers';
 
 /**
@@ -21,6 +22,8 @@ export default function PropertyDetail() {
   const { id } = useParams();
   const navigate = useNavigate();
   const property = getPropertyById(id);
+  const [lightboxOpen, setLightboxOpen] = useState(false);
+  const [lightboxIndex, setLightboxIndex] = useState(0);
 
   // Loading state (simulate async fetch)
   if (!property) {
@@ -28,6 +31,11 @@ export default function PropertyDetail() {
   }
 
   const availableForSale = property.status !== 'Vendido';
+
+  const openLightbox = (index) => {
+    setLightboxIndex(index);
+    setLightboxOpen(true);
+  };
 
   return (
     <>
@@ -54,11 +62,17 @@ export default function PropertyDetail() {
         {/* Hero Image */}
         <div className="relative h-64 md:h-96 bg-gray-200">
           {property.images && property.images[0] ? (
-            <img
-              src={property.images[0]}
-              alt={property.title}
-              className="w-full h-full object-cover"
-            />
+            <button
+              onClick={() => openLightbox(0)}
+              className="w-full h-full cursor-zoom-in"
+              aria-label="Ampliar imagen principal"
+            >
+              <img
+                src={property.images[0]}
+                alt={property.title}
+                className="w-full h-full object-cover"
+              />
+            </button>
           ) : (
             <div className="w-full h-full flex items-center justify-center bg-gray-100">
               <HomeIcon className="h-24 w-24 text-gray-300" aria-hidden="true" />
@@ -191,17 +205,19 @@ export default function PropertyDetail() {
                     <h2 className="text-2xl font-bold mb-4">Galería</h2>
                     <div className="grid grid-cols-2 md:grid-cols-3 gap-4">
                       {property.images.slice(1).map((image, index) => (
-                        <div
+                        <button
                           key={index}
-                          className="aspect-video bg-gray-200 rounded-lg overflow-hidden"
+                          onClick={() => openLightbox(index + 1)}
+                          className="aspect-video bg-gray-200 rounded-lg overflow-hidden cursor-zoom-in group"
+                          aria-label={`Ampliar imagen ${index + 2}`}
                         >
                           <img
                             src={image}
                             alt={`${property.title} - Imagen ${index + 2}`}
-                            className="w-full h-full object-cover hover:scale-105 transition-transform duration-[var(--duration-normal)]"
+                            className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-[var(--duration-normal)]"
                             loading="lazy"
                           />
-                        </div>
+                        </button>
                       ))}
                     </div>
                   </CardBody>
@@ -284,6 +300,17 @@ export default function PropertyDetail() {
           </div>
         </div>
       </div>
+
+      {/* Lightbox */}
+      {property.images && property.images.length > 0 && (
+        <Lightbox
+          images={property.images}
+          initialIndex={lightboxIndex}
+          isOpen={lightboxOpen}
+          onClose={() => setLightboxOpen(false)}
+          alt={property.title}
+        />
+      )}
     </>
   );
 }

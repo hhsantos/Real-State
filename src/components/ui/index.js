@@ -13,6 +13,7 @@ export { default as Card, CardHeader, CardBody, CardFooter } from './Card';
 export { default as Modal, ModalFooter } from './Modal';
 export { default as Toast, ToastContainer } from './Toast';
 export { default as Tooltip } from './Tooltip';
+export { Lightbox } from './Lightbox';
 export {
   default as Skeleton,
   SkeletonText,

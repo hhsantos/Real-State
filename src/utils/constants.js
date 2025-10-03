@@ -43,7 +43,7 @@ export const COMPANY_INFO = {
 export const NAV_ITEMS = [
   { id: 'home', label: 'Inicio', path: '/' },
   { id: 'properties', label: 'Promociones', path: '/propiedades' },
-  { id: 'about', label: 'Nosotros', path: '/nosotros' },
+  { id: 'about', label: 'Nosotros', path: '/sobre-nosotros' },
   { id: 'contact', label: 'Contacto', path: '/contacto' },
 ];
 

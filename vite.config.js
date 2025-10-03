@@ -2,6 +2,7 @@ import { defineConfig } from 'vite'
 import react from '@vitejs/plugin-react'
 import compression from 'vite-plugin-compression'
 import { imagetools } from 'vite-imagetools'
+import path from 'path'
 
 // https://vite.dev/config/
 export default defineConfig({
@@ -19,6 +20,11 @@ export default defineConfig({
     // Image optimization
     imagetools(),
   ],
+  resolve: {
+    alias: {
+      '@': path.resolve(__dirname, './src'),
+    },
+  },
   // Build optimizations
   build: {
     // Target modern browsers - Per AGENTS.md performance requirements

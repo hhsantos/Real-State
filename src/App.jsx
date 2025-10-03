@@ -7,6 +7,7 @@ import Home from './pages/Home';
 import Properties from './pages/Properties';
 import PropertyDetail from './pages/PropertyDetail';
 import About from './pages/About';
+import AboutPage from './pages/AboutPage';
 import Contact from './pages/Contact';
 import Legal from './pages/Legal';
 import Privacy from './pages/Privacy';
@@ -44,6 +45,7 @@ function App() {
                 <Route path="/propiedades" element={<Properties />} />
                 <Route path="/propiedades/:id" element={<PropertyDetail />} />
                 <Route path="/nosotros" element={<About />} />
+                <Route path="/sobre-nosotros" element={<AboutPage />} />
                 <Route path="/contacto" element={<Contact />} />
                 <Route path="/components" element={<ComponentsDemo />} />
                 

@@ -3,6 +3,7 @@ import { HelmetProvider } from 'react-helmet-async';
 import { QueryClient, QueryClientProvider } from '@tanstack/react-query';
 import Layout from './components/layout/Layout';
 import Home from './pages/Home';
+import ComponentsDemo from './pages/ComponentsDemo';
 import NotFound from './pages/NotFound';
 
 /**
@@ -31,6 +32,7 @@ function App() {
             <Route element={<Layout />}>
               {/* Main routes */}
               <Route path="/" element={<Home />} />
+              <Route path="/components" element={<ComponentsDemo />} />
               
               {/* TODO: Add these routes in next phase */}
               {/* <Route path="/propiedades" element={<Properties />} /> */}

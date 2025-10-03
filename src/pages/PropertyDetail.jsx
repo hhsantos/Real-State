@@ -1,10 +1,10 @@
-import { useParams, Link, useNavigate } from 'react-router-dom';
+import { useParams, Link } from 'react-router-dom';
 import { Helmet } from 'react-helmet-async';
 import { useState } from 'react';
 import { getPropertyById } from '../data/properties';
 import { 
   MapPin, Bed, Bath, Maximize, Home as HomeIcon, 
-  Calendar, ArrowLeft, Phone, Mail 
+  Calendar, Phone, Mail 
 } from 'lucide-react';
 import { Button, Card, CardBody, Skeleton, Lightbox, Breadcrumbs } from '../components/ui';
 import { formatPrice, formatDate } from '../utils/helpers';
@@ -20,7 +20,6 @@ import { formatPrice, formatDate } from '../utils/helpers';
 
 export default function PropertyDetail() {
   const { id } = useParams();
-  const navigate = useNavigate();
   const property = getPropertyById(id);
   const [lightboxOpen, setLightboxOpen] = useState(false);
   const [lightboxIndex, setLightboxIndex] = useState(0);
@@ -51,44 +50,27 @@ export default function PropertyDetail() {
       </Helmet>
 
       <div className="bg-gray-50 min-h-screen">
-        {/* Back button & Breadcrumbs */}
-        <div className="bg-white border-b">
-          <div className="container-custom py-4">
-            <Button
-              variant="ghost"
-              onClick={() => navigate('/propiedades')}
-              className="inline-flex items-center mb-3"
+        {/* Header with background image */}
+        <div className="relative bg-primary-600 text-white py-12">
+          {/* Background image */}
+          {property.images && property.images.length > 0 && (
+            <div 
+              className="absolute inset-0 bg-cover bg-center"
+              style={{ backgroundImage: `url(${property.images[0]})` }}
+              aria-hidden="true"
             >
-              <ArrowLeft className="h-4 w-4 mr-2" aria-hidden="true" />
-              Volver al listado
-            </Button>
-            <Breadcrumbs items={breadcrumbItems} />
-          </div>
-        </div>
-
-        {/* Hero Image */}
-        <div className="relative h-64 md:h-96 bg-gray-200">
-          {property.images && property.images[0] ? (
-            <button
-              onClick={() => openLightbox(0)}
-              className="w-full h-full cursor-zoom-in"
-              aria-label="Ampliar imagen principal"
-            >
-              <img
-                src={property.images[0]}
-                alt={property.title}
-                className="w-full h-full object-cover"
-              />
-            </button>
-          ) : (
-            <div className="w-full h-full flex items-center justify-center bg-gray-100">
-              <HomeIcon className="h-24 w-24 text-gray-300" aria-hidden="true" />
+              <div className="absolute inset-0 bg-primary-900/70" />
             </div>
           )}
           
-          {/* Status badge */}
-          <div className="absolute top-6 right-6 px-4 py-2 bg-white rounded-lg shadow-lg">
-            <span className="text-sm font-semibold">{property.status}</span>
+          {/* Content */}
+          <div className="container-custom relative z-10">
+            <Breadcrumbs items={breadcrumbItems} variant="dark" />
+            <h1 className="text-4xl font-bold mb-4 mt-4">{property.title}</h1>
+            <p className="text-xl text-white/90 flex items-center gap-2">
+              <MapPin className="h-5 w-5" aria-hidden="true" />
+              {property.location}
+            </p>
           </div>
         </div>
 
@@ -97,26 +79,6 @@ export default function PropertyDetail() {
           <div className="grid grid-cols-1 lg:grid-cols-3 gap-8">
             {/* Main Info */}
             <div className="lg:col-span-2 space-y-6">
-              {/* Header */}
-              <Card>
-                <CardBody className="space-y-4">
-                  <div>
-                    <h1 className="text-3xl md:text-4xl font-bold text-gray-900 mb-2">
-                      {property.title}
-                    </h1>
-                    <div className="flex items-center gap-2 text-gray-600">
-                      <MapPin className="h-5 w-5" aria-hidden="true" />
-                      <span className="text-lg">{property.location}</span>
-                    </div>
-                  </div>
-
-                  <div className="flex items-center gap-2">
-                    <span className="text-gray-600">Tipo:</span>
-                    <span className="font-medium">{property.type}</span>
-                  </div>
-                </CardBody>
-              </Card>
-
               {/* Description */}
               <Card>
                 <CardBody>
@@ -132,6 +94,16 @@ export default function PropertyDetail() {
                 <CardBody>
                   <h2 className="text-2xl font-bold mb-4">Características</h2>
                   <div className="grid grid-cols-2 md:grid-cols-3 gap-4">
+                    <div className="flex items-center gap-3">
+                      <div className="flex items-center justify-center w-10 h-10 rounded-lg bg-primary-100">
+                        <HomeIcon className="h-5 w-5 text-primary-600" aria-hidden="true" />
+                      </div>
+                      <div>
+                        <p className="text-sm text-gray-500">Tipo</p>
+                        <p className="font-semibold">{property.type}</p>
+                      </div>
+                    </div>
+
                     <div className="flex items-center gap-3">
                       <div className="flex items-center justify-center w-10 h-10 rounded-lg bg-primary-100">
                         <Bed className="h-5 w-5 text-primary-600" aria-hidden="true" />
@@ -205,22 +177,22 @@ export default function PropertyDetail() {
                 </CardBody>
               </Card>
 
-              {/* Gallery - More images */}
-              {property.images && property.images.length > 1 && (
+              {/* Gallery */}
+              {property.images && property.images.length > 0 && (
                 <Card>
                   <CardBody>
                     <h2 className="text-2xl font-bold mb-4">Galería</h2>
                     <div className="grid grid-cols-2 md:grid-cols-3 gap-4">
-                      {property.images.slice(1).map((image, index) => (
+                      {property.images.map((image, index) => (
                         <button
                           key={index}
-                          onClick={() => openLightbox(index + 1)}
+                          onClick={() => openLightbox(index)}
                           className="aspect-video bg-gray-200 rounded-lg overflow-hidden cursor-zoom-in group"
-                          aria-label={`Ampliar imagen ${index + 2}`}
+                          aria-label={`Ampliar imagen ${index + 1}`}
                         >
                           <img
                             src={image}
-                            alt={`${property.title} - Imagen ${index + 2}`}
+                            alt={`${property.title} - Imagen ${index + 1}`}
                             className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-[var(--duration-normal)]"
                             loading="lazy"
                           />

@@ -1,29 +1,27 @@
-import { useState } from 'react';
 import Timeline from '@/components/about/Timeline';
 import ValueCard from '@/components/about/ValueCard';
 import TeamMember from '@/components/about/TeamMember';
 import Stats from '@/components/about/Stats';
+import { Breadcrumbs } from '@/components/ui';
+
+const breadcrumbItems = [
+  { label: 'Inicio', path: '/' },
+  { label: 'Sobre Nosotros', path: '/sobre-nosotros' }
+];
 
 export default function AboutPage() {
   return (
     <main>
       {/* Hero Section */}
-      <section className="relative h-[400px] bg-gradient-to-r from-blue-900 to-blue-700 overflow-hidden">
-        <div className="absolute inset-0 opacity-20">
-          <img
-            src="https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?w=1920"
-            alt=""
-            className="w-full h-full object-cover"
-            aria-hidden="true"
-          />
-        </div>
-        <div className="relative max-w-7xl mx-auto px-4 h-full flex flex-col justify-center items-center text-center text-white">
-          <h1 className="text-5xl font-bold mb-4">Sobre Nosotros</h1>
-          <p className="text-xl max-w-2xl">
+      <div className="bg-primary-600 text-white py-12">
+        <div className="container-custom">
+          <Breadcrumbs items={breadcrumbItems} variant="dark" />
+          <h1 className="text-4xl font-bold mb-4 mt-4">Sobre Nosotros</h1>
+          <p className="text-xl text-primary-100">
             Más de 25 años construyendo hogares y confianza con las familias de la región
           </p>
         </div>
-      </section>
+      </div>
 
       {/* Historia Section */}
       <section className="py-16 bg-white">

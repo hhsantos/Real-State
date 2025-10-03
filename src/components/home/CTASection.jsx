@@ -57,29 +57,7 @@ export default function CTASection() {
             </Button>
           </div>
 
-          {/* Contact info */}
-          <div className="flex flex-col sm:flex-row gap-6 justify-center items-center pt-8 border-t border-white/20">
-            <a 
-              href={`tel:${COMPANY_INFO.PHONE}`}
-              className="flex items-center gap-2 text-primary-50 hover:text-white transition-colors duration-[var(--duration-fast)]"
-            >
-              <Phone className="h-5 w-5" aria-hidden="true" />
-              <span className="font-medium">{COMPANY_INFO.PHONE}</span>
-            </a>
-            <div className="hidden sm:block w-px h-6 bg-white/20" aria-hidden="true" />
-            <a 
-              href={`mailto:${COMPANY_INFO.EMAIL}`}
-              className="flex items-center gap-2 text-primary-50 hover:text-white transition-colors duration-[var(--duration-fast)]"
-            >
-              <Mail className="h-5 w-5" aria-hidden="true" />
-              <span className="font-medium">{COMPANY_INFO.EMAIL}</span>
-            </a>
-          </div>
-
-          {/* Additional info */}
-          <p className="mt-8 text-sm text-primary-100">
-            Horario de atención: {COMPANY_INFO.HOURS}
-          </p>
+          
         </div>
       </div>
     </section>

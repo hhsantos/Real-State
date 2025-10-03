@@ -1,5 +1,5 @@
 import { Helmet } from 'react-helmet-async';
-import { Card, CardBody } from '../components/ui';
+import { Card, CardBody, Breadcrumbs } from '../components/ui';
 import ContactForm from '../components/forms/ContactForm';
 import { COMPANY_INFO } from '../utils/constants';
 import { Phone, Mail, MapPin, Clock } from 'lucide-react';
@@ -17,6 +17,11 @@ import Toast from '../components/ui/Toast';
 
 export default function Contact() {
   const { toasts, showToast, removeToast } = useToast();
+
+  const breadcrumbItems = [
+    { label: 'Inicio', path: '/' },
+    { label: 'Contacto' }
+  ];
 
   const handleFormSuccess = () => {
     showToast({
@@ -39,15 +44,16 @@ export default function Contact() {
 
       <div className="bg-gray-50 min-h-screen">
         {/* Header */}
-        <section className="bg-primary-600 text-white py-12 md:py-16">
+        <div className="bg-primary-600 text-white py-12">
           <div className="container-custom">
-            <h1 className="text-4xl md:text-5xl font-bold mb-4">Contacto</h1>
-            <p className="text-xl text-primary-100 max-w-2xl">
+            <Breadcrumbs items={breadcrumbItems} variant="dark" />
+            <h1 className="text-4xl font-bold mb-4 mt-4">Contacto</h1>
+            <p className="text-xl text-primary-100">
               ¿Tienes alguna pregunta? Estamos aquí para ayudarte. 
               Contacta con nosotros y te responderemos lo antes posible.
             </p>
           </div>
-        </section>
+        </div>
 
         {/* Main Content */}
         <section className="py-12 md:py-16">

@@ -41,7 +41,7 @@ export default function Properties() {
   return (
     <>
       <Helmet>
-        <title>Promociones - ALISI</title>
+        <title>Promociones - Real State</title>
         <meta
           name="description"
           content="Descubre nuestras promociones de viviendas en construcción y disponibles. Chalets, pisos, dúplex y áticos en Madrid y alrededores."

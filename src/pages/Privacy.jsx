@@ -18,10 +18,10 @@ export default function Privacy() {
   return (
     <>
       <Helmet>
-        <title>Política de Privacidad - ALISI</title>
+        <title>Política de Privacidad - Real State</title>
         <meta
           name="description"
-          content="Política de privacidad y protección de datos de ALISI Promotora"
+          content="Política de privacidad y protección de datos de Real State Promotora"
         />
       </Helmet>
 
@@ -40,7 +40,7 @@ export default function Privacy() {
                 1. Responsable del Tratamiento
               </h2>
               <p className="text-gray-700 mb-4">
-                ALISI Promotora S.L., con domicilio en Calle Principal 123, 28001 Madrid, 
+                Real State Promotora S.L., con domicilio en Calle Principal 123, 28001 Madrid, 
                 es el responsable del tratamiento de los datos personales del Usuario y le 
                 informa de que estos datos serán tratados de conformidad con el Reglamento 
                 (UE) 2016/679, de 27 de abril (GDPR), y la Ley Orgánica 3/2018, de 5 de 
@@ -106,10 +106,10 @@ export default function Privacy() {
               <p className="text-gray-700 mt-4">
                 Para ejercer estos derechos, puede contactar con nosotros en{' '}
                 <a 
-                  href="mailto:info@alisi.com" 
+                  href="mailto:info@realstate.com" 
                   className="text-primary-600 hover:underline"
                 >
-                  info@alisi.com
+                  info@realstate.com
                 </a>
               </p>
             </section>
@@ -119,7 +119,7 @@ export default function Privacy() {
                 6. Medidas de Seguridad
               </h2>
               <p className="text-gray-700">
-                ALISI tratará los datos del Usuario en todo momento de forma absolutamente 
+                Real State tratará los datos del Usuario en todo momento de forma absolutamente 
                 confidencial y guardando el preceptivo deber de secreto respecto de los mismos, 
                 de conformidad con lo previsto en la normativa de aplicación, adoptando las 
                 medidas técnicas y organizativas necesarias para evitar la alteración, pérdida, 

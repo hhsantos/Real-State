@@ -42,7 +42,7 @@ export default function Header() {
             }}
           >
             <span className="text-2xl font-bold text-primary-600">
-              ALISI
+              Real State
             </span>
           </Link>
 

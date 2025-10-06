@@ -1,6 +1,6 @@
 import { Helmet } from 'react-helmet-async';
 import { Card, CardBody, Button } from '../components/ui';
-import { COMPANY_INFO } from '../utils/constants';
+import { COMPANY } from '../utils/constants';
 import { Building2, Users, Award, Target, Heart, Shield } from 'lucide-react';
 import { Link } from 'react-router-dom';
 
@@ -17,10 +17,10 @@ export default function About() {
   return (
     <>
       <Helmet>
-        <title>Nosotros - ALISI</title>
+        <title>Nosotros - Real State</title>
         <meta
           name="description"
-          content={`Conoce ${COMPANY_INFO.NAME}, promotora inmobiliaria con más de ${COMPANY_INFO.EXPERIENCE_YEARS} años de experiencia construyendo hogares de calidad.`}
+          content={`Conoce ${COMPANY.NAME}, promotora inmobiliaria con más de ${COMPANY.EXPERIENCE_YEARS} años de experiencia construyendo hogares de calidad.`}
         />
       </Helmet>
 
@@ -30,10 +30,10 @@ export default function About() {
           <div className="container-custom">
             <div className="max-w-3xl">
               <h1 className="text-4xl md:text-5xl font-bold mb-6">
-                Sobre {COMPANY_INFO.NAME}
+                Sobre {COMPANY.NAME}
               </h1>
               <p className="text-xl md:text-2xl text-primary-100">
-                Más de {COMPANY_INFO.EXPERIENCE_YEARS} años construyendo hogares, 
+                Más de {COMPANY.EXPERIENCE_YEARS} años construyendo hogares, 
                 creando comunidades y cumpliendo sueños.
               </p>
             </div>
@@ -46,13 +46,13 @@ export default function About() {
             <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
               <div className="text-center">
                 <div className="text-5xl font-bold text-primary-600 mb-2 tabular-nums">
-                  {COMPANY_INFO.EXPERIENCE_YEARS}+
+                  {COMPANY.EXPERIENCE_YEARS}+
                 </div>
                 <p className="text-gray-600 font-medium">Años de experiencia</p>
               </div>
               <div className="text-center">
                 <div className="text-5xl font-bold text-primary-600 mb-2 tabular-nums">
-                  {COMPANY_INFO.PROPERTIES_BUILT}+
+                  {COMPANY.PROPERTIES_BUILT}+
                 </div>
                 <p className="text-gray-600 font-medium">Viviendas construidas</p>
               </div>
@@ -77,7 +77,7 @@ export default function About() {
               <Card>
                 <CardBody className="prose max-w-none">
                   <p className="text-lg text-gray-700 leading-relaxed mb-4">
-                    Fundada hace más de {COMPANY_INFO.EXPERIENCE_YEARS} años, <strong>{COMPANY_INFO.NAME}</strong> nació 
+                    Fundada hace más de {COMPANY.EXPERIENCE_YEARS} años, <strong>{COMPANY.NAME}</strong> nació 
                     con una visión clara: construir hogares de calidad que mejoren la vida de las familias 
                     españolas.
                   </p>
@@ -89,7 +89,7 @@ export default function About() {
                   </p>
                   
                   <p className="text-lg text-gray-700 leading-relaxed">
-                    Con más de <strong>{COMPANY_INFO.PROPERTIES_BUILT} viviendas construidas</strong>, hemos 
+                    Con más de <strong>{COMPANY.PROPERTIES_BUILT} viviendas construidas</strong>, hemos 
                     ayudado a miles de familias a encontrar su hogar ideal. Nuestra trayectoria nos respalda 
                     y nos impulsa a seguir mejorando día a día.
                   </p>

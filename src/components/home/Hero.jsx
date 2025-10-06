@@ -49,7 +49,7 @@ export default function Hero() {
           </h1>
 
           <p className="text-lg md:text-xl lg:text-2xl mb-10 text-gray-100 max-w-2xl leading-relaxed">
-            Promotora de viviendas con más de dos décadas construyendo calidad, compromiso y confianza en cada proyecto en la provincia de Alicante.
+            Promotora de viviendas con más de dos décadas construyendo calidad, compromiso y confianza en cada proyecto.
           </p>
 
           {/* CTAs - MUST: Touch targets ≥44px */}

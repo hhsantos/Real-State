@@ -64,7 +64,7 @@ export default function ComponentsDemo() {
   return (
     <>
       <Helmet>
-        <title>Componentes UI - ALISI</title>
+        <title>Componentes UI - Real State</title>
         <meta name="description" content="Demostración de componentes UI accesibles" />
       </Helmet>
 

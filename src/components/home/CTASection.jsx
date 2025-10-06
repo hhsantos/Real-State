@@ -1,7 +1,7 @@
 import { Link } from 'react-router-dom';
 import { Phone, Mail, ArrowRight } from 'lucide-react';
 import Button from '../ui/Button';
-import { COMPANY_INFO } from '../../utils/constants';
+import { COMPANY } from '../../utils/constants';
 
 /**
  * CTA Section

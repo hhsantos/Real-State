@@ -2,7 +2,7 @@ export default function Timeline() {
   const milestones = [
     {
       year: '1995',
-      title: 'Fundación de Alisi',
+      title: 'Fundación de Real State',
       description: 'Inicio de actividades con nuestro primer proyecto residencial',
     },
     {

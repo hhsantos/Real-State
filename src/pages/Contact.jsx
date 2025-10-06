@@ -1,7 +1,7 @@
 import { Helmet } from 'react-helmet-async';
 import { Card, CardBody, Breadcrumbs } from '../components/ui';
 import ContactForm from '../components/forms/ContactForm';
-import { COMPANY_INFO } from '../utils/constants';
+import { COMPANY } from '../utils/constants';
 import { Phone, Mail, MapPin, Clock } from 'lucide-react';
 import { useToast } from '../hooks/useToast';
 import Toast from '../components/ui/Toast';
@@ -35,10 +35,10 @@ export default function Contact() {
   return (
     <>
       <Helmet>
-        <title>Contacto - ALISI</title>
+        <title>Contacto - Real State</title>
         <meta
           name="description"
-          content={`Contacta con ${COMPANY_INFO.NAME}. Estamos aquí para ayudarte a encontrar tu hogar ideal. Teléfono, email y ubicación.`}
+          content={`Contacta con ${COMPANY.NAME}. Estamos aquí para ayudarte a encontrar tu hogar ideal. Teléfono, email y ubicación.`}
         />
       </Helmet>
 
@@ -89,10 +89,10 @@ export default function Contact() {
                         <div>
                           <p className="text-sm text-gray-500 mb-1">Teléfono</p>
                           <a
-                            href={`tel:${COMPANY_INFO.PHONE}`}
+                            href={`tel:${COMPANY.PHONE}`}
                             className="font-medium text-gray-900 hover:text-primary-600 transition-colors"
                           >
-                            {COMPANY_INFO.PHONE}
+                            {COMPANY.PHONE}
                           </a>
                         </div>
                       </div>
@@ -105,10 +105,10 @@ export default function Contact() {
                         <div>
                           <p className="text-sm text-gray-500 mb-1">Email</p>
                           <a
-                            href={`mailto:${COMPANY_INFO.EMAIL}`}
+                            href={`mailto:${COMPANY.EMAIL}`}
                             className="font-medium text-gray-900 hover:text-primary-600 transition-colors break-all"
                           >
-                            {COMPANY_INFO.EMAIL}
+                            {COMPANY.EMAIL}
                           </a>
                         </div>
                       </div>
@@ -121,7 +121,7 @@ export default function Contact() {
                         <div>
                           <p className="text-sm text-gray-500 mb-1">Dirección</p>
                           <p className="font-medium text-gray-900">
-                            {COMPANY_INFO.ADDRESS}
+                            {COMPANY.ADDRESS}
                           </p>
                         </div>
                       </div>
@@ -156,7 +156,7 @@ export default function Contact() {
                       llámanos durante nuestro horario de atención.
                     </p>
                     <a
-                      href={`tel:${COMPANY_INFO.PHONE}`}
+                      href={`tel:${COMPANY.PHONE}`}
                       className="inline-flex items-center justify-center w-full px-4 py-2 bg-primary-600 text-white rounded-lg hover:bg-primary-700 transition-colors font-medium"
                     >
                       <Phone className="h-4 w-4 mr-2" aria-hidden="true" />
@@ -194,7 +194,7 @@ export default function Contact() {
                 Estamos aquí para ayudarte
               </h2>
               <p className="text-gray-600 leading-relaxed">
-                En {COMPANY_INFO.NAME} valoramos cada consulta. Nuestro equipo 
+                En {COMPANY.NAME} valoramos cada consulta. Nuestro equipo 
                 de profesionales está disponible para resolver todas tus dudas 
                 y ayudarte a encontrar el hogar perfecto para ti y tu familia.
               </p>

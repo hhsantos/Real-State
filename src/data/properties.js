@@ -1,6 +1,6 @@
 /**
  * Mock data for properties
- * Based on analysis of alisisa.com - La Estrella del Señorío
+ * Based on analysis of realstate.com - La Estrella del Señorío
  */
 
 export const PROPERTY_FEATURES = {

@@ -56,7 +56,7 @@ export default function WhyChooseUs() {
         {/* Section header */}
         <div className="text-center max-w-3xl mx-auto mb-12">
           <h2 className="text-3xl md:text-4xl font-bold mb-4">
-            ¿Por qué elegir ALISI?
+            ¿Por qué elegir Real State?
           </h2>
           <p className="text-lg text-gray-600">
             Somos una promotora inmobiliaria con más de 25 años de experiencia 

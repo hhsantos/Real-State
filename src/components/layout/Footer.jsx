@@ -1,5 +1,5 @@
 import { Link } from 'react-router-dom';
-import { COMPANY_INFO } from '../../utils/constants';
+import { COMPANY } from '../../utils/constants';
 import { Mail, Phone, MapPin } from 'lucide-react';
 
 /**
@@ -20,15 +20,15 @@ export default function Footer() {
           {/* Company Info */}
           <div>
             <h2 className="text-2xl font-bold text-white mb-4">
-              {COMPANY_INFO.NAME}
+              {COMPANY.NAME}
             </h2>
             <p className="text-gray-400 mb-4">
-              {COMPANY_INFO.TAGLINE}
+              {COMPANY.TAGLINE}
             </p>
             <p className="text-sm text-gray-500">
-              Más de {COMPANY_INFO.EXPERIENCE_YEARS} años construyendo hogares de calidad.
+              Más de {COMPANY.EXPERIENCE_YEARS} años construyendo hogares de calidad.
               <br />
-              Más de {COMPANY_INFO.PROPERTIES_BUILT}+ viviendas realizadas.
+              Más de {COMPANY.PROPERTIES_BUILT}+ viviendas realizadas.
             </p>
           </div>
 
@@ -82,24 +82,24 @@ export default function Footer() {
               <li className="flex items-start gap-3">
                 <Phone className="h-5 w-5 mt-0.5 flex-shrink-0" aria-hidden="true" />
                 <a
-                  href={`tel:${COMPANY_INFO.PHONE}`}
+                  href={`tel:${COMPANY.PHONE}`}
                   className="hover:text-white transition-colors duration-[var(--duration-fast)] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary-500 rounded"
                 >
-                  {COMPANY_INFO.PHONE}
+                  {COMPANY.PHONE}
                 </a>
               </li>
               <li className="flex items-start gap-3">
                 <Mail className="h-5 w-5 mt-0.5 flex-shrink-0" aria-hidden="true" />
                 <a
-                  href={`mailto:${COMPANY_INFO.EMAIL}`}
+                  href={`mailto:${COMPANY.EMAIL}`}
                   className="hover:text-white transition-colors duration-[var(--duration-fast)] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary-500 rounded"
                 >
-                  {COMPANY_INFO.EMAIL}
+                  {COMPANY.EMAIL}
                 </a>
               </li>
               <li className="flex items-start gap-3">
                 <MapPin className="h-5 w-5 mt-0.5 flex-shrink-0" aria-hidden="true" />
-                <span>{COMPANY_INFO.ADDRESS}</span>
+                <span>{COMPANY.ADDRESS}</span>
               </li>
             </ul>
           </div>
@@ -109,7 +109,7 @@ export default function Footer() {
         <div className="mt-12 pt-8 border-t border-gray-800">
           <div className="flex flex-col md:flex-row justify-between items-center gap-4">
             <p className="text-sm text-gray-500">
-              © {currentYear} {COMPANY_INFO.NAME}. Todos los derechos reservados.
+              © {currentYear} {COMPANY.NAME}. Todos los derechos reservados.
             </p>
             <div className="flex gap-6">
               <Link

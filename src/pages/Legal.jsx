@@ -18,10 +18,10 @@ export default function Legal() {
   return (
     <>
       <Helmet>
-        <title>Aviso Legal - ALISI</title>
+        <title>Aviso Legal - Real State</title>
         <meta
           name="description"
-          content="Aviso legal de ALISI Promotora de viviendas"
+          content="Aviso legal de Real State Promotora de viviendas"
         />
       </Helmet>
 
@@ -41,14 +41,14 @@ export default function Legal() {
               </h2>
               <p className="text-gray-700 mb-4">
                 En cumplimiento de la Ley 34/2002, de 11 de julio, de Servicios de la Sociedad 
-                de la Información y de Comercio Electrónico (LSSICE), ALISI informa de los 
+                de la Información y de Comercio Electrónico (LSSICE), Real State informa de los 
                 siguientes datos:
               </p>
               <ul className="list-disc list-inside text-gray-700 space-y-2 ml-4">
-                <li><strong>Denominación social:</strong> ALISI Promotora S.L.</li>
+                <li><strong>Denominación social:</strong> Real State Promotora S.L.</li>
                 <li><strong>NIF:</strong> B-12345678</li>
                 <li><strong>Domicilio social:</strong> Calle Principal 123, 28001 Madrid</li>
-                <li><strong>Correo electrónico:</strong> info@alisi.com</li>
+                <li><strong>Correo electrónico:</strong> info@realstate.com</li>
                 <li><strong>Teléfono:</strong> +34&nbsp;912&nbsp;345&nbsp;678</li>
               </ul>
             </section>
@@ -58,8 +58,8 @@ export default function Legal() {
                 2. Objeto
               </h2>
               <p className="text-gray-700 mb-4">
-                El presente aviso legal regula el uso del sitio web alisi.com, del que es 
-                titular ALISI Promotora S.L. La navegación por el sitio web atribuye la 
+                El presente aviso legal regula el uso del sitio web realstate.com, del que es 
+                titular Real State Promotora S.L. La navegación por el sitio web atribuye la 
                 condición de usuario del mismo e implica la aceptación plena y sin reservas 
                 de todas las disposiciones incluidas en este Aviso Legal.
               </p>
@@ -73,7 +73,7 @@ export default function Legal() {
                 Todos los contenidos del sitio web, incluyendo, sin carácter limitativo, 
                 textos, fotografías, gráficos, imágenes, iconos, tecnología, software, links 
                 y demás contenidos audiovisuales o sonoros, así como su diseño gráfico y 
-                códigos fuente, son propiedad intelectual de ALISI o de terceros.
+                códigos fuente, son propiedad intelectual de Real State o de terceros.
               </p>
             </section>
 

@@ -45,7 +45,7 @@ export default function PropertyDetail() {
   return (
     <>
       <Helmet>
-        <title>{property.title} - ALISI</title>
+        <title>{property.title} - Real State</title>
         <meta name="description" content={property.description} />
       </Helmet>
 

@@ -1,5 +1,5 @@
 import { Helmet } from 'react-helmet-async';
-import { SEO_DEFAULTS } from '../utils/constants';
+import { SEO } from '../utils/constants';
 import Hero from '../components/home/Hero';
 import FeaturedProperties from '../components/home/FeaturedProperties';
 import WhyChooseUs from '../components/home/WhyChooseUs';
@@ -24,8 +24,8 @@ export default function Home() {
     <>
       {/* SEO - MUST: Title matches context per AGENTS.md */}
       <Helmet>
-        <title>{SEO_DEFAULTS.TITLE}</title>
-        <meta name="description" content={SEO_DEFAULTS.DESCRIPTION} />
+        <title>{SEO.TITLE}</title>
+        <meta name="description" content={SEO.DESCRIPTION} />
       </Helmet>
 
       {/* Hero Section - First impression with main CTA */}

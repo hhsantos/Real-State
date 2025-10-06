@@ -1,5 +1,5 @@
 /**
- * Constants for the ALISI application
+ * Constants for the Real State application
  * Based on AGENTS.md requirements
  */
 
@@ -28,14 +28,14 @@ export const BREAKPOINTS = {
 };
 
 // Company info
-export const COMPANY_INFO = {
-  NAME: 'ALISI S.A.',
-  FULL_NAME: 'ALISI, Sociedad Anónima',
+export const COMPANY = {
+  NAME: 'Real State',
+  FULL_NAME: 'Real State, Sociedad Anónima',
   TAGLINE: 'Promotora de Viviendas',
   EXPERIENCE_YEARS: 25,
   PROPERTIES_BUILT: 1300,
   PHONE: '+34 XXX XXX XXX', // TODO: Add real phone
-  EMAIL: 'info@alisisa.com', // TODO: Verify email
+  EMAIL: 'info@realstate.com', // TODO: Verify email
   ADDRESS: 'Madrid, España', // TODO: Add real address
 };
 
@@ -75,10 +75,10 @@ export const VALIDATION_MESSAGES = {
 };
 
 // SEO defaults
-export const SEO_DEFAULTS = {
-  TITLE: 'ALISI - Promotora de Viviendas',
+export const SEO = {
+  TITLE: 'Real State - Promotora de Viviendas',
   DESCRIPTION:
-    'ALISI S.A. con más de 25 años en el sector inmobiliario. Construcción, promoción y venta de viviendas de calidad en Madrid y alrededores.',
+    'Real State con más de 25 años en el sector inmobiliario. Construcción, promoción y venta de viviendas de calidad en Madrid y alrededores.',
   KEYWORDS: [
     'promotora',
     'viviendas',

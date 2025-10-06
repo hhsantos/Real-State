@@ -15,7 +15,7 @@ export default function NotFound() {
   return (
     <>
       <Helmet>
-        <title>Página no encontrada - ALISI</title>
+        <title>Página no encontrada - Real State</title>
       </Helmet>
 
       <div className="container-custom py-16 md:py-24">

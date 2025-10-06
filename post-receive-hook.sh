@@ -71,10 +71,8 @@ do
 EOF
         fi
         
-        # Instalar dependencias del servidor usando el package.json específico
-        log "📦 Instalando dependencias del servidor express..."
-        cp server-package.json package-server.json
-        pnpm install --prod --package-json=package-server.json || error_exit "Failed to install server dependencies"
+        # Las dependencias del servidor ya están instaladas con pnpm install
+        log "✅ Dependencias del servidor ya instaladas"
         
         # Verificar configuración PM2
         if [ ! -f "ecosystem.config.cjs" ]; then
@@ -115,8 +113,7 @@ EOF
         
         # Limpiar archivos temporales
         log "🧹 Limpiando archivos temporales..."
-        pnpm cache clean > /dev/null 2>&1 || true
-        rm -f package-server.json > /dev/null 2>&1 || true
+        pnpm store prune > /dev/null 2>&1 || true
         
         END_TIME=$(date '+%Y-%m-%d %H:%M:%S')
         log "🎉 Deploy de Real State completado exitosamente ($END_TIME)"

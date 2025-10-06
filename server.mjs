@@ -71,7 +71,7 @@ app.use('/api', (req, res) => {
 });
 
 // SPA fallback - Todas las rutas devuelven index.html para React Router
-app.get('*', (req, res) => {
+app.get('/*', (req, res) => {
   // MUST per AGENTS.md - Support deep linking
   res.sendFile(path.join(__dirname, 'dist/index.html'), {
     headers: {

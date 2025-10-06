@@ -71,7 +71,8 @@ app.use('/api', (req, res) => {
 });
 
 // SPA fallback - Todas las rutas devuelven index.html para React Router
-app.get('/*', (req, res) => {
+// Usando middleware en lugar de route para evitar problemas con path-to-regexp en Express 5.x
+app.use((req, res, next) => {
   // MUST per AGENTS.md - Support deep linking
   res.sendFile(path.join(__dirname, 'dist/index.html'), {
     headers: {

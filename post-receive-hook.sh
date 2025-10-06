@@ -120,8 +120,9 @@ EOF
         
         END_TIME=$(date '+%Y-%m-%d %H:%M:%S')
         log "🎉 Deploy de Real State completado exitosamente ($END_TIME)"
-        log "🌐 Aplicación disponible en: http://18.184.20.26:3000"
-        log "🔍 Health check: http://18.184.20.26:3000/health"
+        log "🌐 Aplicación disponible en: http://realstate.dev.dreamsite.es"
+        log "🔍 Health check: http://realstate.dev.dreamsite.es/health"
+        log "🖥️ IP directa: http://18.184.20.26:3000"
         log "📊 PM2 Status:"
         pm2 describe realstate-app | grep -E "(status|memory|cpu)" | tee -a $LOG_FILE
         

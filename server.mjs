@@ -23,10 +23,10 @@ app.use(compression({
 
 // Headers de seguridad para Real State
 app.use((req, res, next) => {
-  // HTTPS redirect in production
-  if (process.env.NODE_ENV === 'production' && req.header('x-forwarded-proto') !== 'https') {
-    return res.redirect(301, `https://${req.get('host')}${req.url}`);
-  }
+  // HTTPS redirect in production (deshabilitado hasta configurar SSL)
+  // if (process.env.NODE_ENV === 'production' && req.header('x-forwarded-proto') !== 'https') {
+  //   return res.redirect(301, `https://${req.get('host')}${req.url}`);
+  // }
   
   // Security headers
   res.setHeader('X-Content-Type-Options', 'nosniff');
@@ -90,6 +90,7 @@ httpServer.listen(PORT_HTTP, '0.0.0.0', () => {
   console.log(`🚀 Real State HTTP Server running on port ${PORT_HTTP}`);
   console.log(`📱 Local: http://localhost:${PORT_HTTP}`);
   console.log(`🌐 External: http://18.184.20.26:${PORT_HTTP}`);
+  console.log(`🌐 Domain: http://alisi.dev.dreamsite.es`);
 });
 
 // Servidor HTTPS con certificados SSL
@@ -105,7 +106,7 @@ if (existsSync(certPath) && existsSync(keyPath)) {
     const httpsServer = createHttpsServer(sslOptions, app);
     httpsServer.listen(PORT_HTTPS, '0.0.0.0', () => {
       console.log(`🔒 Real State HTTPS Server running on port ${PORT_HTTPS}`);
-      console.log(`🌐 Production: https://18.184.20.26:${PORT_HTTPS}`);
+      console.log(`🌐 Production HTTPS: https://realstate.dev.dreamsite.es`);
     });
   } catch (error) {
     console.error('❌ Error starting HTTPS server:', error.message);

@@ -1,6 +1,6 @@
-# 🏡 ALISI - Web App Moderna
+# 🏡 Real State - Web App Moderna
 
-> Nueva web para ALISI S.A. - Promotora de Viviendas con más de 25 años de experiencia
+> Nueva web para Real State - Promotora de Viviendas con más de 25 años de experiencia
 
 [![React](https://img.shields.io/badge/React-19.2-61dafb?logo=react)](https://react.dev/)
 [![Vite](https://img.shields.io/badge/Vite-7.1-646cff?logo=vite)](https://vitejs.dev/)
@@ -11,7 +11,7 @@
 
 ## 🎯 Sobre el Proyecto
 
-Rediseño completo y modernización de la web de ALISI, empresa líder en promoción inmobiliaria con:
+Rediseño completo y modernización de la web de Real State, empresa líder en promoción inmobiliaria con:
 - ✅ Más de **25 años** de experiencia
 - ✅ Más de **1.300 viviendas** construidas
 - ✅ Presencia consolidada en Madrid y alrededores
@@ -96,7 +96,7 @@ pnpm lint     # Linting del código
 ## 📁 Estructura del Proyecto
 
 ```
-alisi/
+real-state/
 ├── public/              # Assets estáticos
 ├── src/
 │   ├── components/      # Componentes reutilizables
@@ -151,7 +151,7 @@ npm run lighthouse  # (por configurar)
 
 ### Colores Corporativos:
 ```css
-/* Primary - Azul ALISI */
+/* Primary - Azul Real State */
 --color-primary-500: #475590
 --color-primary-600: #3B4A7A  /* Principal interactivo */
 
@@ -303,20 +303,9 @@ git push origin feature/nombre
 
 ---
 
-## 📞 Contacto
-
-**ALISI S.A.**  
-Promotora de Viviendas
-
-- 🌐 Web actual: [alisisa.com](https://alisisa.com)
-- 📧 Email: info@alisisa.com
-- 📍 Madrid, España
-
----
-
 ## 📄 Licencia
 
-Código propietario © 2024 ALISI S.A.
+Código propietario © 2025 Real State
 
 ---
 
@@ -334,5 +323,5 @@ Código propietario © 2024 ALISI S.A.
 ---
 
 <p align="center">
-  Construido con ❤️ siguiendo las mejores prácticas de accesibilidad y performance
+  Construido con ❤️ por Dreamsite.es siguiendo las mejores prácticas de accesibilidad y performance
 </p>

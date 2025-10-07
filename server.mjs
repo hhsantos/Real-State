@@ -82,8 +82,8 @@ app.use((req, res, next) => {
 });
 
 // Configuración de puertos
-const PORT_HTTP = process.env.PORT || 3001;
-const PORT_HTTPS = process.env.HTTPS_PORT || 3444;
+const PORT_HTTP = process.env.PORT || 3002;
+const PORT_HTTPS = process.env.HTTPS_PORT || 443;
 
 // Servidor HTTP
 const httpServer = createHttpServer(app);
@@ -91,7 +91,7 @@ httpServer.listen(PORT_HTTP, '0.0.0.0', () => {
   console.log(`🚀 Real State HTTP Server running on port ${PORT_HTTP}`);
   console.log(`📱 Local: http://localhost:${PORT_HTTP}`);
   console.log(`🌐 External: http://18.184.20.26:${PORT_HTTP}`);
-  console.log(`🌐 Domain: https://realstate.develop.dreamsite.es`);
+  console.log(`🌐 Domain: https://realstate.dev.dreamsite.es`);
 });
 
 // Servidor HTTPS con certificados SSL
@@ -107,7 +107,7 @@ if (existsSync(certPath) && existsSync(keyPath)) {
     const httpsServer = createHttpsServer(sslOptions, app);
     httpsServer.listen(PORT_HTTPS, '0.0.0.0', () => {
       console.log(`🔒 Real State HTTPS Server running on port ${PORT_HTTPS}`);
-      console.log(`🌐 Production HTTPS: https://realstate.develop.dreamsite.es`);
+      console.log(`🌐 Production HTTPS: https://realstate.dev.dreamsite.es`);
     });
   } catch (error) {
     console.error('❌ Error starting HTTPS server:', error.message);

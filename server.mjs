@@ -95,8 +95,8 @@ httpServer.listen(PORT_HTTP, '0.0.0.0', () => {
 });
 
 // Servidor HTTPS con certificados SSL
-const certPath = '/var/www/ssl/fullchain.pem';
-const keyPath = '/var/www/ssl/privkey.pem';
+const certPath = '/var/www/ssl/realstate-fullchain.pem';
+const keyPath = '/var/www/ssl/realstate-privkey.pem';
 
 if (existsSync(certPath) && existsSync(keyPath)) {
   try {

@@ -1,8 +1,7 @@
 // server.mjs - Servidor optimizado para Real State React SPA
+// nginx maneja SSL, este servidor solo sirve HTTP
 import express from 'express';
 import { createServer as createHttpServer } from 'http';
-import { createServer as createHttpsServer } from 'https';
-import { readFileSync, existsSync } from 'fs';
 import compression from 'compression';
 import path from 'path';
 import { fileURLToPath } from 'url';
@@ -23,10 +22,10 @@ app.use(compression({
 
 // Headers de seguridad para Real State
 app.use((req, res, next) => {
-  // HTTPS redirect in production (deshabilitado hasta configurar SSL)
-  // if (process.env.NODE_ENV === 'production' && req.header('x-forwarded-proto') !== 'https') {
-  //   return res.redirect(301, `https://${req.get('host')}${req.url}`);
-  // }
+  // Trust proxy headers from nginx
+  if (req.headers['x-forwarded-proto'] === 'https') {
+    req.secure = true;
+  }
   
   // Security headers
   res.setHeader('X-Content-Type-Options', 'nosniff');
@@ -81,45 +80,22 @@ app.use((req, res, next) => {
   });
 });
 
-// Configuración de puertos
-const PORT_HTTP = process.env.PORT || 3002;
-const PORT_HTTPS = process.env.HTTPS_PORT || 443;
+// Configuración de puerto HTTP (nginx maneja HTTPS en puerto 443)
+const PORT_HTTP = process.env.PORT || 3003;
 
-// Servidor HTTP
+// Servidor HTTP (nginx hace proxy desde HTTPS)
 const httpServer = createHttpServer(app);
 httpServer.listen(PORT_HTTP, '0.0.0.0', () => {
-  console.log(`🚀 Real State HTTP Server running on port ${PORT_HTTP}`);
+  console.log(`🚀 Real State Server running on port ${PORT_HTTP}`);
   console.log(`📱 Local: http://localhost:${PORT_HTTP}`);
-  console.log(`🌐 External: http://18.184.20.26:${PORT_HTTP}`);
-  console.log(`🌐 Domain: https://realstate.dev.dreamsite.es`);
+  console.log(`🌐 Public: https://realstate.dev.dreamsite.es (via nginx)`);
+  console.log(`🔒 SSL termination handled by nginx`);
 });
-
-// Servidor HTTPS con certificados SSL
-const certPath = '/var/www/ssl/realstate-fullchain.pem';
-const keyPath = '/var/www/ssl/realstate-privkey.pem';
-
-if (existsSync(certPath) && existsSync(keyPath)) {
-  try {
-    const sslOptions = {
-      key: readFileSync(keyPath),
-      cert: readFileSync(certPath)
-    };
-    const httpsServer = createHttpsServer(sslOptions, app);
-    httpsServer.listen(PORT_HTTPS, '0.0.0.0', () => {
-      console.log(`🔒 Real State HTTPS Server running on port ${PORT_HTTPS}`);
-      console.log(`🌐 Production HTTPS: https://realstate.dev.dreamsite.es`);
-    });
-  } catch (error) {
-    console.error('❌ Error starting HTTPS server:', error.message);
-  }
-} else {
-  console.log('⚠️ SSL certificates not found, running HTTP only');
-}
 
 // Graceful shutdown
 process.on('SIGTERM', () => {
   console.log('🔄 Real State server shutting down gracefully...');
   httpServer.close(() => {
-    console.log('✅ HTTP server closed.');
+    console.log('✅ Server closed.');
   });
 });

@@ -11,14 +11,12 @@ module.exports = {
     env: {
       NODE_ENV: "production",
       HOST: "0.0.0.0",
-      PORT: 3002,
-      HTTPS_PORT: 3003
+      PORT: 3003
     },
     
     env_production: {
       NODE_ENV: "production",
-      PORT: 3002,
-      HTTPS_PORT: 3003
+      PORT: 3003
     },
     
     // Logging específico para Real State

@@ -11,6 +11,9 @@ const __dirname = path.dirname(__filename);
 
 const app = express();
 
+// Trust proxy - MUST para que req.secure funcione detrás de nginx
+app.set('trust proxy', 1);
+
 // Configuración de compresión - MUST per AGENTS.md performance
 app.use(compression({
   filter: (req, res) => {
@@ -22,11 +25,6 @@ app.use(compression({
 
 // Headers de seguridad para Real State
 app.use((req, res, next) => {
-  // Trust proxy headers from nginx
-  if (req.headers['x-forwarded-proto'] === 'https') {
-    req.secure = true;
-  }
-  
   // Security headers
   res.setHeader('X-Content-Type-Options', 'nosniff');
   res.setHeader('X-Frame-Options', 'DENY');

@@ -1,6 +1,32 @@
-# 🚀 Deploy Automático ALISI - React SPA
+# 🚀 Deploy Automático Real State - React SPA
 
-Sistema de deploy automático específico para ALISI, una aplicación React SPA construida con Vite. Utiliza Git hooks post-receive para deployment sin fricción.
+Sistema de deploy automático específico para Real State, una aplicación React SPA construida con Vite. Utiliza Git hooks post-receive para deployment sin fricción.
+
+## 🔑 Credenciales de Deploy
+
+**Servidor de Producción:**
+- **IP:** 18.184.20.26
+- **Usuario:** ec2-user
+- **SSH Key:** `/home/desarrollo/.ssh/Entourage_keypar.pem`
+- **Dominio:** https://realstate.dev.dreamsite.es
+- **Puerto PM2:** 3003 (HTTP interno)
+- **Puerto Nginx:** 443 (HTTPS público)
+
+**Comando de Deploy:**
+```bash
+GIT_SSH_COMMAND='ssh -i /home/desarrollo/.ssh/Entourage_keypar.pem' git push production master
+```
+
+**Git Remotes:**
+```bash
+origin      https://github.com/hhsantos/Real-State.git (GitHub)
+production  ec2-user@18.184.20.26:/var/repo/realstate.git (Deploy)
+```
+
+**Estructura en Servidor:**
+- Repositorio bare: `/var/repo/realstate.git`
+- Aplicación: `/var/www/realstate`
+- Hook post-receive: `/var/repo/realstate.git/hooks/post-receive`
 
 ## 📋 Características del Sistema
 

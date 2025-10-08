@@ -15,14 +15,14 @@ export const testimonials = [
     id: 2,
     name: 'Carlos Jiménez',
     location: 'La Estrella del Señorío, Illescas',
-    text: 'Comprar con ALISI ha sido una experiencia muy positiva. Profesionales, atentos y siempre dispuestos a resolver cualquier duda. Nuestro chalet superó nuestras expectativas. Recomiendo ALISI sin dudarlo.',
+    text: 'Comprar con Real State ha sido una experiencia muy positiva. Profesionales, atentos y siempre dispuestos a resolver cualquier duda. Nuestro chalet superó nuestras expectativas. Recomiendo Real State sin dudarlo.',
     rating: 5,
   },
   {
     id: 3,
     name: 'Ana Martínez',
     location: 'Residencial El Mirador, Getafe',
-    text: 'Llevábamos tiempo buscando y finalmente encontramos lo que queríamos con ALISI. El dúplex tiene una distribución perfecta y las zonas comunes son preciosas. El trato humano hace la diferencia. Muy satisfechos con la decisión.',
+    text: 'Llevábamos tiempo buscando y finalmente encontramos lo que queríamos con Real State. El dúplex tiene una distribución perfecta y las zonas comunes son preciosas. El trato humano hace la diferencia. Muy satisfechos con la decisión.',
     rating: 5,
   },
   {

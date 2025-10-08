@@ -23,11 +23,12 @@ export default function Hero() {
       {/* Background image with overlay */}
       <div className="absolute inset-0">
         <img
-          src="https://images.unsplash.com/photo-1600585154340-be6161a56a0c?w=1920&h=1080&fit=crop&q=80"
+          src="https://images.unsplash.com/photo-1600585154340-be6161a56a0c?w=1920&h=1080&fit=crop&q=80&fm=webp"
           alt=""
           className="w-full h-full object-cover"
           width="1920"
           height="1080"
+          fetchPriority="high"
           loading="eager"
           aria-hidden="true"
         />

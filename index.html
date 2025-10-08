@@ -11,8 +11,24 @@
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     
-    <!-- Inter font - Variable font for optimal loading -->
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
+    <!-- Preload LCP image for better performance -->
+    <link 
+      rel="preload" 
+      as="image" 
+      href="https://images.unsplash.com/photo-1600585154340-be6161a56a0c?w=1920&h=1080&fit=crop&q=80&fm=webp"
+      fetchpriority="high"
+    />
+    
+    <!-- Inter font - Async loading to avoid render-blocking -->
+    <link 
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" 
+      rel="stylesheet"
+      media="print"
+      onload="this.media='all'"
+    />
+    <noscript>
+      <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
+    </noscript>
     
     <title>Real State - Promotora de Viviendas</title>
   </head>

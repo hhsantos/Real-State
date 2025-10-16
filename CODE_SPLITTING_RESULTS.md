@@ -350,4 +350,51 @@ const Lightbox = lazy(() => import('./components/ui/Lightbox'));
 
 ---
 
-**Siguiente paso:** Deploy a producción y medir mejoras reales con Lighthouse 🎯
+## 🚀 Deploy en Producción
+
+### Información del Deploy
+```
+Fecha:          16 de octubre de 2025, 11:56:09
+Commit:         9316bde (master)
+Servidor:       EC2 18.184.20.26 (Amazon Linux 2023)
+Dominio:        https://realstate.dev.dreamsite.es
+Puerto interno: 3003 (proxy nginx)
+PM2:            realstate-app (online, pid 529951)
+Build time:     9.64s
+```
+
+### Verificación de Chunks Desplegados ✅
+```bash
+# Bundle principal
+https://realstate.dev.dreamsite.es/assets/index-bXE0bpWf.js
+✅ 253.81 KB (80.21 KB gzip)
+
+# Páginas lazy-loaded (verificadas)
+https://realstate.dev.dreamsite.es/assets/Home-CTrdfa-R.js
+✅ 14.64 KB (4.89 KB gzip)
+
+https://realstate.dev.dreamsite.es/assets/Properties-B_OENehD.js
+✅ 14.97 KB (5.37 KB gzip)
+
+https://realstate.dev.dreamsite.es/assets/Contact-SuW6T5xb.js
+✅ 11.24 KB (3.85 KB gzip)
+
+# + 8 páginas adicionales (NotFound, Legal, Privacy, Cookies, About, etc.)
+```
+
+### Estado del Servidor
+```
+PM2 Status:     ✅ Online
+Uptime:         111s desde último restart
+Memory:         55.6 MB
+CPU:            0%
+Restarts:       7 (deploy history)
+SSL:            ✅ Activo (nginx)
+Cache-Control:  public, max-age=3600
+```
+
+---
+
+**✅ Code Splitting desplegado exitosamente en producción**
+
+**Siguiente paso:** Medir mejoras reales con Lighthouse y Performance API 🎯

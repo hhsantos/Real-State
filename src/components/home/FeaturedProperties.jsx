@@ -1,5 +1,5 @@
 import { Link } from 'react-router-dom';
-import { ArrowRight } from 'lucide-react';
+import { ArrowRight } from '../icons';
 import Button from '../ui/Button';
 import PropertyCard from '../property/PropertyCard';
 import { properties } from '../../data/properties';

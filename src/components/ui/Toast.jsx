@@ -1,6 +1,6 @@
 import { Transition } from '@headlessui/react';
 import { Fragment, useEffect } from 'react';
-import { X, CheckCircle, AlertCircle, Info, AlertTriangle } from 'lucide-react';
+import { X, CheckCircle, AlertCircle, Info, AlertTriangle } from '../icons';
 import { cn } from '../../utils/cn';
 
 /**

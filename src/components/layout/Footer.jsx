@@ -1,6 +1,6 @@
 import { Link } from 'react-router-dom';
 import { COMPANY } from '../../utils/constants';
-import { Mail, Phone, MapPin } from 'lucide-react';
+import { Mail, Phone, MapPin } from '../icons';
 
 /**
  * Footer Component

@@ -1,7 +1,7 @@
 import { useQueryState, parseAsString, parseAsInteger, parseAsArrayOf } from 'nuqs';
 import { Card, CardBody, CardHeader, Button, Select, Checkbox } from '../ui';
 import { PROPERTY_STATUS, PROPERTY_TYPES, PROPERTY_FEATURES } from '../../data/properties';
-import { X } from 'lucide-react';
+import { X } from '../icons';
 
 /**
  * PropertyFilters Component

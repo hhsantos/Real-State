@@ -5,7 +5,7 @@ import {
   MapPin, 
   Award, 
   Clock 
-} from 'lucide-react';
+} from '../icons';
 
 /**
  * Why Choose Us Section

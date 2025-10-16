@@ -1,6 +1,6 @@
 import { Fragment } from 'react';
 import { Dialog, Transition } from '@headlessui/react';
-import { X } from 'lucide-react';
+import { X } from '../icons';
 import { cn } from '../../utils/cn';
 
 /**

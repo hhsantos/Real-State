@@ -1,6 +1,6 @@
 import { Link } from 'react-router-dom';
 import Button from '../ui/Button';
-import { ArrowRight, Phone } from 'lucide-react';
+import { ArrowRight, Phone } from '../icons';
 
 /**
  * Hero Section - Home page header

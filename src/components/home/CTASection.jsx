@@ -1,5 +1,5 @@
 import { Link } from 'react-router-dom';
-import { Phone, Mail, ArrowRight } from 'lucide-react';
+import { Phone, Mail, ArrowRight } from '../icons';
 import Button from '../ui/Button';
 import { COMPANY } from '../../utils/constants';
 

@@ -1,6 +1,6 @@
 import { Fragment } from 'react';
 import { Listbox, Transition } from '@headlessui/react';
-import { Check, ChevronDown } from 'lucide-react';
+import { Check, ChevronDown } from '../icons';
 import { cn } from '../../utils/cn';
 
 /**

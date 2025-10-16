@@ -2,7 +2,7 @@ import { Helmet } from 'react-helmet-async';
 import { Card, CardBody, Breadcrumbs } from '../components/ui';
 import ContactForm from '../components/forms/ContactForm';
 import { COMPANY } from '../utils/constants';
-import { Phone, Mail, MapPin, Clock } from 'lucide-react';
+import { Phone, Mail, MapPin, Clock } from '@/components/icons';
 import { useToast } from '../hooks/useToast';
 import Toast from '../components/ui/Toast';
 

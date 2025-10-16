@@ -5,7 +5,7 @@ import { getPropertyById } from '../data/properties';
 import { 
   MapPin, Bed, Bath, Maximize, Home as HomeIcon, 
   Calendar, Phone, Mail 
-} from 'lucide-react';
+} from '@/components/icons';
 import { Button, Card, CardBody, Skeleton, Lightbox, Breadcrumbs } from '../components/ui';
 import { formatPrice, formatDate } from '../utils/helpers';
 

@@ -1,5 +1,5 @@
 import { useState } from 'react';
-import { ChevronLeft, ChevronRight, Star } from 'lucide-react';
+import { ChevronLeft, ChevronRight, Star } from '../icons';
 import Button from '../ui/Button';
 import { testimonials } from '../../data/testimonials';
 

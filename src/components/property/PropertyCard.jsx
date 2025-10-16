@@ -1,5 +1,5 @@
 import { Link } from 'react-router-dom';
-import { MapPin, Bed, Bath, Maximize, Home } from 'lucide-react';
+import { MapPin, Bed, Bath, Maximize, Home } from '../icons';
 import { Card, CardBody } from '../ui';
 import { cn } from '../../utils/cn';
 import { formatPrice } from '../../utils/helpers';

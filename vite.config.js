@@ -3,6 +3,9 @@ import react from '@vitejs/plugin-react'
 import compression from 'vite-plugin-compression'
 import { imagetools } from 'vite-imagetools'
 import path from 'path'
+import { fileURLToPath } from 'url'
+
+const __dirname = path.dirname(fileURLToPath(import.meta.url))
 
 // https://vite.dev/config/
 export default defineConfig({
@@ -25,6 +28,16 @@ export default defineConfig({
       '@': path.resolve(__dirname, './src'),
     },
   },
+  // Optimizar deps para tree-shaking
+  optimizeDeps: {
+    include: [
+      'react',
+      'react-dom',
+      'react-router-dom',
+    ],
+    // Excluir lucide-react para forzar tree-shaking
+    exclude: ['lucide-react'],
+  },
   // Build optimizations
   build: {
     // Target modern browsers - Per AGENTS.md performance requirements
@@ -37,7 +50,7 @@ export default defineConfig({
         manualChunks: {
           // Vendor chunks
           'react-vendor': ['react', 'react-dom', 'react-router-dom'],
-          'ui-vendor': ['@headlessui/react', 'lucide-react'],
+          'ui-vendor': ['@headlessui/react'],
           'form-vendor': ['react-hook-form', '@hookform/resolvers', 'zod'],
           'query-vendor': ['@tanstack/react-query'],
         },

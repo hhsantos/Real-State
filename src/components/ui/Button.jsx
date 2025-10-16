@@ -1,6 +1,6 @@
 import { forwardRef } from 'react';
 import { cn } from '../../utils/cn';
-import { Loader2 } from 'lucide-react';
+import { Loader2 } from '../icons';
 
 /**
  * Accessible Button Component

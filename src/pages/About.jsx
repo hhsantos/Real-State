@@ -1,7 +1,7 @@
 import { Helmet } from 'react-helmet-async';
 import { Card, CardBody, Button } from '../components/ui';
 import { COMPANY } from '../utils/constants';
-import { Building2, Users, Award, Target, Heart, Shield } from 'lucide-react';
+import { Building2, Users, Award, Target, Heart, Shield } from '@/components/icons';
 import { Link } from 'react-router-dom';
 
 /**

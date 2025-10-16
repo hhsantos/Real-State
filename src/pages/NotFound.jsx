@@ -1,7 +1,7 @@
 import { Helmet } from 'react-helmet-async';
 import { Link } from 'react-router-dom';
 import Button from '../components/ui/Button';
-import { Home } from 'lucide-react';
+import { Home } from '@/components/icons';
 
 /**
  * 404 Not Found Page

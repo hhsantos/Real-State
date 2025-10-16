@@ -1,7 +1,7 @@
 import { Link } from 'react-router-dom';
 import { cn } from '../../utils/cn';
 import { NAV_ITEMS } from '../../utils/constants';
-import { Menu, X } from 'lucide-react';
+import { Menu, X } from '../icons';
 import { useState } from 'react';
 
 /**

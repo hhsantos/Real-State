@@ -5,7 +5,7 @@ import PropertyFilters from '../components/property/PropertyFilters';
 import { SkeletonPropertyCard } from '../components/ui/Skeleton';
 import { Breadcrumbs } from '../components/ui';
 import { properties, filterProperties } from '../data/properties';
-import { Grid, List } from 'lucide-react';
+import { Grid, List } from '@/components/icons';
 import { Button } from '../components/ui';
 import { cn } from '../utils/cn';
 

@@ -22,7 +22,7 @@ import {
 import { useModal } from '../hooks/useModal';
 import { useToast } from '../hooks/useToast';
 import Toast from '../components/ui/Toast';
-import { Info } from 'lucide-react';
+import { Info } from '@/components/icons';
 
 /**
  * Components Demo Page

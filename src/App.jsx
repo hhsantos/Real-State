@@ -1,19 +1,23 @@
+import { lazy, Suspense } from 'react';
 import { BrowserRouter, Routes, Route } from 'react-router-dom';
 import { HelmetProvider } from 'react-helmet-async';
 import { QueryClient, QueryClientProvider } from '@tanstack/react-query';
 import { NuqsAdapter } from 'nuqs/adapters/react-router';
 import Layout from './components/layout/Layout';
-import Home from './pages/Home';
-import Properties from './pages/Properties';
-import PropertyDetail from './pages/PropertyDetail';
-import About from './pages/About';
-import AboutPage from './pages/AboutPage';
-import Contact from './pages/Contact';
-import Legal from './pages/Legal';
-import Privacy from './pages/Privacy';
-import Cookies from './pages/Cookies';
-import ComponentsDemo from './pages/ComponentsDemo';
-import NotFound from './pages/NotFound';
+import PageLoader from './components/layout/PageLoader';
+
+// Lazy load all pages for code splitting
+const Home = lazy(() => import('./pages/Home'));
+const Properties = lazy(() => import('./pages/Properties'));
+const PropertyDetail = lazy(() => import('./pages/PropertyDetail'));
+const About = lazy(() => import('./pages/About'));
+const AboutPage = lazy(() => import('./pages/AboutPage'));
+const Contact = lazy(() => import('./pages/Contact'));
+const Legal = lazy(() => import('./pages/Legal'));
+const Privacy = lazy(() => import('./pages/Privacy'));
+const Cookies = lazy(() => import('./pages/Cookies'));
+const ComponentsDemo = lazy(() => import('./pages/ComponentsDemo'));
+const NotFound = lazy(() => import('./pages/NotFound'));
 
 /**
  * Main App Component
@@ -37,27 +41,29 @@ function App() {
       <QueryClientProvider client={queryClient}>
         <BrowserRouter>
           <NuqsAdapter>
-            <Routes>
-              {/* Layout wrapper with header/footer */}
-              <Route element={<Layout />}>
-                {/* Main routes */}
-                <Route path="/" element={<Home />} />
-                <Route path="/propiedades" element={<Properties />} />
-                <Route path="/propiedades/:id" element={<PropertyDetail />} />
-                <Route path="/nosotros" element={<About />} />
-                <Route path="/sobre-nosotros" element={<AboutPage />} />
-                <Route path="/contacto" element={<Contact />} />
-                <Route path="/components" element={<ComponentsDemo />} />
-                
-                {/* Legal pages */}
-                <Route path="/aviso-legal" element={<Legal />} />
-                <Route path="/privacidad" element={<Privacy />} />
-                <Route path="/cookies" element={<Cookies />} />
-                
-                {/* 404 - MUST: No dead ends per AGENTS.md */}
-                <Route path="*" element={<NotFound />} />
-              </Route>
-            </Routes>
+            <Suspense fallback={<PageLoader />}>
+              <Routes>
+                {/* Layout wrapper with header/footer */}
+                <Route element={<Layout />}>
+                  {/* Main routes */}
+                  <Route path="/" element={<Home />} />
+                  <Route path="/propiedades" element={<Properties />} />
+                  <Route path="/propiedades/:id" element={<PropertyDetail />} />
+                  <Route path="/nosotros" element={<About />} />
+                  <Route path="/sobre-nosotros" element={<AboutPage />} />
+                  <Route path="/contacto" element={<Contact />} />
+                  <Route path="/components" element={<ComponentsDemo />} />
+                  
+                  {/* Legal pages */}
+                  <Route path="/aviso-legal" element={<Legal />} />
+                  <Route path="/privacidad" element={<Privacy />} />
+                  <Route path="/cookies" element={<Cookies />} />
+                  
+                  {/* 404 - MUST: No dead ends per AGENTS.md */}
+                  <Route path="*" element={<NotFound />} />
+                </Route>
+              </Routes>
+            </Suspense>
           </NuqsAdapter>
         </BrowserRouter>
       </QueryClientProvider>

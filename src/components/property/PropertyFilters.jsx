@@ -4,6 +4,35 @@ import { Card, CardBody, CardHeader, Button, Select, Checkbox } from '../ui';
 import { PROPERTY_STATUS, PROPERTY_TYPES, PROPERTY_FEATURES } from '../../data/properties';
 import { X } from '../icons';
 
+const MIN_PRICE_OPTIONS = [
+  { value: '', label: 'Sin mínimo' },
+  { value: 100000, label: '100.000 €' },
+  { value: 150000, label: '150.000 €' },
+  { value: 200000, label: '200.000 €' },
+  { value: 250000, label: '250.000 €' },
+  { value: 300000, label: '300.000 €' },
+  { value: 400000, label: '400.000 €' },
+];
+
+const MAX_PRICE_OPTIONS = [
+  { value: '', label: 'Sin máximo' },
+  { value: 200000, label: '200.000 €' },
+  { value: 250000, label: '250.000 €' },
+  { value: 300000, label: '300.000 €' },
+  { value: 400000, label: '400.000 €' },
+  { value: 500000, label: '500.000 €' },
+  { value: 600000, label: '600.000 €' },
+];
+
+const BEDROOMS_OPTIONS = [
+  { value: '', label: 'Cualquiera' },
+  { value: 1, label: '1+' },
+  { value: 2, label: '2+' },
+  { value: 3, label: '3+' },
+  { value: 4, label: '4+' },
+  { value: 5, label: '5+' },
+];
+
 /**
  * PropertyFilters Component
  * Filters with state in URL using nuqs
@@ -146,29 +175,13 @@ export default function PropertyFilters({ onFiltersChange }) {
               label="Desde"
               value={minPrice || ''}
               onChange={(value) => setMinPrice(value ? parseInt(value, 10) : null)}
-              options={[
-                { value: '', label: 'Sin mínimo' },
-                { value: 100000, label: '100.000 €' },
-                { value: 150000, label: '150.000 €' },
-                { value: 200000, label: '200.000 €' },
-                { value: 250000, label: '250.000 €' },
-                { value: 300000, label: '300.000 €' },
-                { value: 400000, label: '400.000 €' },
-              ]}
+              options={MIN_PRICE_OPTIONS}
             />
             <Select
               label="Hasta"
               value={maxPrice || ''}
               onChange={(value) => setMaxPrice(value ? parseInt(value, 10) : null)}
-              options={[
-                { value: '', label: 'Sin máximo' },
-                { value: 200000, label: '200.000 €' },
-                { value: 250000, label: '250.000 €' },
-                { value: 300000, label: '300.000 €' },
-                { value: 400000, label: '400.000 €' },
-                { value: 500000, label: '500.000 €' },
-                { value: 600000, label: '600.000 €' },
-              ]}
+              options={MAX_PRICE_OPTIONS}
             />
           </div>
         </div>
@@ -181,14 +194,7 @@ export default function PropertyFilters({ onFiltersChange }) {
           <Select
             value={bedrooms || ''}
             onChange={(value) => setBedrooms(value ? parseInt(value, 10) : null)}
-            options={[
-              { value: '', label: 'Cualquiera' },
-              { value: 1, label: '1+' },
-              { value: 2, label: '2+' },
-              { value: 3, label: '3+' },
-              { value: 4, label: '4+' },
-              { value: 5, label: '5+' },
-            ]}
+            options={BEDROOMS_OPTIONS}
           />
         </div>
 

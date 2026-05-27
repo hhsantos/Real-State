@@ -1,4 +1,5 @@
 import { useState, useRef } from 'react';
+import { useNavigate } from 'react-router-dom';
 import { Helmet } from 'react-helmet-async';
 import PropertyCard from '../components/property/PropertyCard';
 import PropertyFilters from '../components/property/PropertyFilters';
@@ -8,6 +9,11 @@ import { properties, filterProperties } from '../data/properties';
 import { Grid, List } from '@/components/icons';
 import { Button } from '../components/ui';
 import { cn } from '../utils/cn';
+
+const BREADCRUMB_ITEMS = [
+  { label: 'Inicio', path: '/' },
+  { label: 'Promociones' }
+];
 
 /**
  * Properties Page - Property Listings
@@ -23,11 +29,7 @@ export default function Properties() {
   const [loading, setLoading] = useState(false);
   const [viewMode, setViewMode] = useState('grid'); // 'grid' or 'list'
   const filterTimeoutRef = useRef(null);
-
-  const breadcrumbItems = [
-    { label: 'Inicio', path: '/' },
-    { label: 'Promociones' }
-  ];
+  const navigate = useNavigate();
 
   const handleFiltersChange = (filters) => {
     setLoading(true);
@@ -59,7 +61,7 @@ export default function Properties() {
         {/* Header */}
         <div className="bg-primary-600 text-white py-12">
           <div className="container-custom">
-            <Breadcrumbs items={breadcrumbItems} variant="dark" />
+            <Breadcrumbs items={BREADCRUMB_ITEMS} variant="dark" />
             <h1 className="text-4xl font-bold mb-4 mt-4">Nuestras Promociones</h1>
             <p className="text-xl text-primary-100">
               Encuentra tu hogar ideal entre nuestras {properties.length} promociones
@@ -138,7 +140,7 @@ export default function Properties() {
                   </p>
                   {/* MUST: No dead ends per AGENTS.md */}
                   <Button
-                    onClick={() => window.location.href = '/propiedades'}
+                    onClick={() => navigate('/propiedades')}
                   >
                     Ver todas las propiedades
                   </Button>

@@ -1,4 +1,4 @@
-import { Fragment } from 'react';
+import { Fragment, useId } from 'react';
 import { Listbox, Transition } from '@headlessui/react';
 import { Check, ChevronDown } from '../icons';
 import { cn } from '../../utils/cn';
@@ -27,7 +27,8 @@ export default function Select({
   className,
   'aria-label': ariaLabel,
 }) {
-  const selectId = id || `select-${Math.random().toString(36).substr(2, 9)}`;
+  const reactId = useId();
+  const selectId = id || reactId;
   const errorId = `${selectId}-error`;
   const helperId = `${selectId}-helper`;
 

@@ -1,3 +1,4 @@
+import { Helmet } from 'react-helmet-async';
 import { Breadcrumbs } from '@/components/ui';
 
 const breadcrumbItems = [
@@ -42,13 +43,21 @@ const valores = [
 
 export default function AboutPage() {
   return (
-    <main>
-      {/* Hero Section */}
-      <div className="relative bg-gradient-to-br from-primary-700 to-primary-900 text-white py-16 md:py-24">
-        <div className="absolute inset-0 bg-[url('https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?w=1920')] bg-cover bg-center opacity-10"></div>
-        <div className="container-custom relative">
-          <Breadcrumbs items={breadcrumbItems} variant="dark" />
-          <h1 className="text-4xl md:text-5xl font-bold mb-4 mt-6">Sobre Nosotros</h1>
+    <>
+      <Helmet>
+        <title>Sobre Nosotros - Real State</title>
+        <meta
+          name="description"
+          content="Conoce la trayectoria de Real State, más de 25 años diseñando y construyendo hogares de calidad y confianza para miles de familias de la región."
+        />
+      </Helmet>
+      <main>
+        {/* Hero Section */}
+        <div className="relative bg-gradient-to-br from-primary-700 to-primary-900 text-white py-16 md:py-24">
+          <div className="absolute inset-0 bg-[url('https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?w=1920')] bg-cover bg-center opacity-10"></div>
+          <div className="container-custom relative">
+            <Breadcrumbs items={breadcrumbItems} variant="dark" />
+            <h1 className="text-4xl md:text-5xl font-bold mb-4 mt-6">Sobre Nosotros</h1>
           <p className="text-xl md:text-2xl text-primary-100 max-w-3xl">
             Más de 25 años construyendo hogares y confianza con las familias de la región
           </p>
@@ -193,5 +202,6 @@ export default function AboutPage() {
         </div>
       </section>
     </main>
+    </>
   );
 }

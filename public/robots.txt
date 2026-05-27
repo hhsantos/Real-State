@@ -1,0 +1,22 @@
+# /public/robots.txt
+# Configuración de robots para Real State - Optimizado para SEO tradicional y GEO (IA)
+
+User-agent: *
+Allow: /
+Disallow: /api/
+Disallow: /components
+
+# Gestionar rastreadores de IA (Permitir búsqueda conversacional / bloquear entrenamiento masivo)
+User-agent: GPTBot
+Disallow: /
+
+User-agent: ChatGPT-User
+Allow: /
+
+User-agent: PerplexityBot
+Allow: /
+
+User-agent: ClaudeBot
+Disallow: /
+
+Sitemap: https://realstate.dev.dreamsite.es/sitemap.xml

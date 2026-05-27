@@ -76,9 +76,9 @@ export const VALIDATION_MESSAGES = {
 
 // SEO defaults
 export const SEO = {
-  TITLE: 'Real State - Promotora de Viviendas',
+  TITLE: 'Real State | Promotora de Viviendas de Obra Nueva en Madrid',
   DESCRIPTION:
-    'Real State con más de 25 años en el sector inmobiliario. Construcción, promoción y venta de viviendas de calidad en Madrid y alrededores.',
+    'Real State: Promotora inmobiliaria con más de 25 años de experiencia. Promoción y venta de chalets y pisos de obra nueva de alta calidad en Madrid.',
   KEYWORDS: [
     'promotora',
     'viviendas',

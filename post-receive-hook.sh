@@ -24,7 +24,7 @@ do
     if [[ $ref = refs/heads/$BRANCH ]]; then
         log "🚀 Iniciando deploy de Real State ($START_TIME)"
         log "📝 Deploy: $oldrev -> $newrev"
-        log "🖥️ Servidor: Amazon Linux 2023 - IP: 18.184.20.26"
+        log "🖥️ Servidor: Amazon Linux 2023 - IP: 35.158.147.36"
         
         # Extraer archivos del repositorio
         log "📂 Extrayendo archivos..."
@@ -82,7 +82,7 @@ EOF
         # Health check antes del reinicio
         log "🏥 Realizando health check..."
         if command -v curl > /dev/null; then
-            curl -f http://localhost:3002/health > /dev/null 2>&1 && log "✅ Current app is healthy"
+            curl -f http://localhost:3003/health > /dev/null 2>&1 && log "✅ Current app is healthy"
         fi
         
         # Reiniciar aplicación con PM2
@@ -100,7 +100,7 @@ EOF
         # Health check post-deploy
         log "🔍 Verificando health check post-deploy..."
         for i in {1..15}; do
-            if curl -f http://localhost:3002/health > /dev/null 2>&1; then
+            if curl -f http://localhost:3003/health > /dev/null 2>&1; then
                 log "✅ Health check exitoso"
                 break
             fi
@@ -119,7 +119,7 @@ EOF
         log "🎉 Deploy de Real State completado exitosamente ($END_TIME)"
         log "🌐 Aplicación disponible en: https://realstate.dev.dreamsite.es"
         log "🔍 Health check: https://realstate.dev.dreamsite.es/health"
-        log "🖥️ IP directa: http://18.184.20.26:3002"
+        log "🖥️ IP directa: http://35.158.147.36:3003"
         log "📊 PM2 Status:"
         pm2 describe realstate-app | grep -E "(status|memory|cpu)" | tee -a $LOG_FILE
         

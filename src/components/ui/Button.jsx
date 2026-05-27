@@ -12,11 +12,13 @@ import { Loader2 } from '../icons';
  */
 
 const buttonVariants = {
-  primary: 'bg-primary-600 text-white hover:bg-primary-700 focus-visible:ring-primary-500',
-  secondary: 'bg-secondary-500 text-white hover:bg-secondary-600 focus-visible:ring-secondary-500',
-  outline: 'border-2 border-primary-600 text-primary-600 hover:bg-primary-50 focus-visible:ring-primary-500',
-  ghost: 'text-primary-600 hover:bg-primary-50 focus-visible:ring-primary-500',
-  danger: 'bg-red-600 text-white hover:bg-red-700 focus-visible:ring-red-500',
+  primary: 'bg-primary-600 text-white hover:bg-primary-700 hover:text-white focus-visible:ring-primary-500',
+  secondary: 'bg-secondary-500 text-white hover:bg-secondary-600 hover:text-white focus-visible:ring-secondary-500',
+  outline: 'border-2 border-primary-600 text-primary-600 hover:bg-primary-50 hover:text-primary-700 focus-visible:ring-primary-500',
+  ghost: 'text-primary-600 hover:bg-primary-50 hover:text-primary-700 focus-visible:ring-primary-500',
+  danger: 'bg-red-600 text-white hover:bg-red-700 hover:text-white focus-visible:ring-red-500',
+  white: 'bg-white text-gray-900 hover:bg-gray-100 hover:text-gray-900 focus-visible:ring-white',
+  'outline-white': 'border-2 border-white text-white hover:bg-white hover:text-gray-900 focus-visible:ring-white',
 };
 
 const buttonSizes = {
@@ -37,21 +39,23 @@ const Button = forwardRef(
       type = 'button',
       'aria-label': ariaLabel,
       onClick,
+      as: Component = 'button',
       ...props
     },
     ref
   ) => {
     // MUST: Keep submit enabled until request starts per AGENTS.md
     const isDisabled = disabled || loading;
+    const isButton = Component === 'button';
 
     return (
-      <button
+      <Component
         ref={ref}
-        type={type}
+        type={isButton ? type : undefined}
         className={cn(
           // Base styles
           'inline-flex items-center justify-center gap-2',
-          'font-medium rounded-lg',
+          'font-medium rounded-lg no-underline hover:no-underline',
           'transition-colors duration-[var(--duration-fast)] ease-[var(--ease-out)]',
           // Focus styles - MUST be visible per AGENTS.md
           'focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-offset-2',
@@ -64,11 +68,17 @@ const Button = forwardRef(
           buttonSizes[size],
           className
         )}
-        disabled={isDisabled}
+        disabled={isButton ? isDisabled : undefined}
         aria-label={ariaLabel}
         aria-busy={loading}
         aria-disabled={isDisabled}
-        onClick={onClick}
+        onClick={(e) => {
+          if (isDisabled) {
+            e.preventDefault();
+            return;
+          }
+          if (onClick) onClick(e);
+        }}
         {...props}
       >
         {/* MUST: Loading button shows spinner + keeps label per AGENTS.md */}
@@ -79,7 +89,7 @@ const Button = forwardRef(
           />
         )}
         {children}
-      </button>
+      </Component>
     );
   }
 );

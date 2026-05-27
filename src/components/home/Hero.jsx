@@ -58,8 +58,9 @@ export default function Hero() {
             <Button
               as={Link}
               to="/propiedades"
+              variant="primary"
               size="lg"
-              className="bg-primary-600 text-white hover:bg-primary-700 shadow-lg hover:shadow-xl transition-all"
+              className="shadow-lg hover:shadow-xl transition-all"
             >
               Ver Promociones
               <ArrowRight className="h-5 w-5" aria-hidden="true" />
@@ -67,9 +68,9 @@ export default function Hero() {
             <Button
               as="a"
               href="tel:+34965000000"
-              variant="outline"
+              variant="outline-white"
               size="lg"
-              className="border-2 border-white text-white hover:bg-white hover:text-gray-900 transition-all"
+              className="transition-all"
             >
               <Phone className="h-5 w-5" aria-hidden="true" />
               Llámanos

@@ -409,7 +409,7 @@ React → Pocketbase (binario Go) → SQLite
 
 ```bash
 # 1. Instalar PostgreSQL en EC2
-ssh -i ~/.ssh/Entourage_keypar.pem ec2-user@18.184.20.26
+ssh -i ~/.ssh/Entourage_keypar.pem ec2-user@35.158.147.36
 sudo dnf install postgresql15-server
 sudo postgresql-setup --initdb
 sudo systemctl start postgresql

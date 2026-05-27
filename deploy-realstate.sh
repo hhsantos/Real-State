@@ -11,7 +11,7 @@ BLUE='\033[0;34m'
 NC='\033[0m' # No Color
 
 # Server config
-SERVER_IP="18.184.20.26"
+SERVER_IP="35.158.147.36"
 SERVER_USER="realstate"
 APP_NAME="Real State"
 
@@ -66,7 +66,7 @@ success "Build local exitoso"
 # Confirmar deploy
 echo
 log "🎯 Destino: $SERVER_USER@$SERVER_IP"
-log "📱 URL: http://$SERVER_IP:3000"
+log "📱 URL: http://$SERVER_IP:3003"
 echo
 read -p "🤔 ¿Continuar con el deploy a producción? (y/N): " -n 1 -r
 echo
@@ -107,13 +107,13 @@ sleep 15
 
 log "🔍 Verificando health check..."
 for i in {1..6}; do
-    if curl -f -s http://$SERVER_IP:3000/health > /dev/null; then
+    if curl -f -s http://$SERVER_IP:3003/health > /dev/null; then
         success "Real State está online y funcionando correctamente"
         
         # Mostrar información de la aplicación
         echo
         log "📋 Información de la aplicación:"
-        curl -s http://$SERVER_IP:3000/health | jq . 2>/dev/null || curl -s http://$SERVER_IP:3000/health
+        curl -s http://$SERVER_IP:3003/health | jq . 2>/dev/null || curl -s http://$SERVER_IP:3003/health
         break
     fi
     if [ $i -eq 6 ]; then
@@ -128,7 +128,7 @@ git checkout $CURRENT_BRANCH
 
 success "🎉 Deploy de Real State completado exitosamente!"
 echo
-log "🌐 Aplicación: http://$SERVER_IP:3000"
-log "🔍 Health: http://$SERVER_IP:3000/health"  
+log "🌐 Aplicación: http://$SERVER_IP:3003"
+log "🔍 Health: http://$SERVER_IP:3003/health"  
 log "📊 Monitorear: ssh $SERVER_USER@$SERVER_IP 'pm2 logs realstate-app'"
 log "📈 Estado: ssh $SERVER_USER@$SERVER_IP 'pm2 status'"

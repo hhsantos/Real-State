@@ -229,7 +229,7 @@ optimizeDeps: {
 
 ### Servidor
 ```
-EC2:            18.184.20.26 (Amazon Linux 2023)
+EC2:            35.158.147.36 (Amazon Linux 2023)
 Dominio:        https://realstate.dev.dreamsite.es
 Puerto:         3003 (interno, proxy nginx)
 PM2:            realstate-app (online)

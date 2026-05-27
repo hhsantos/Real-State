@@ -18,7 +18,7 @@ GIT_SSH_COMMAND='ssh -i /home/desarrollo/.ssh/Entourage_keypar.pem' git push pro
 
 | Parámetro | Valor |
 |-----------|-------|
-| **IP** | 18.184.20.26 |
+| **IP** | 35.158.147.36 |
 | **Usuario** | ec2-user |
 | **SSH Key** | /home/desarrollo/.ssh/Entourage_keypar.pem |
 | **Dominio** | https://realstate.dev.dreamsite.es |
@@ -35,26 +35,26 @@ git remote -v
 
 # Resultado esperado:
 # origin      https://github.com/hhsantos/Real-State.git (fetch/push)
-# production  ec2-user@18.184.20.26:/var/repo/realstate.git (fetch/push)
+# production  ec2-user@35.158.147.36:/var/repo/realstate.git (fetch/push)
 ```
 
 ## Comandos SSH Útiles
 
 ```bash
 # Conectar al servidor
-ssh -i /home/desarrollo/.ssh/Entourage_keypar.pem ec2-user@18.184.20.26
+ssh -i /home/desarrollo/.ssh/Entourage_keypar.pem ec2-user@35.158.147.36
 
 # Ver logs PM2
-ssh -i /home/desarrollo/.ssh/Entourage_keypar.pem ec2-user@18.184.20.26 "pm2 logs realstate-app --lines 50"
+ssh -i /home/desarrollo/.ssh/Entourage_keypar.pem ec2-user@35.158.147.36 "pm2 logs realstate-app --lines 50"
 
 # Ver estado PM2
-ssh -i /home/desarrollo/.ssh/Entourage_keypar.pem ec2-user@18.184.20.26 "pm2 status"
+ssh -i /home/desarrollo/.ssh/Entourage_keypar.pem ec2-user@35.158.147.36 "pm2 status"
 
 # Reiniciar manualmente (solo si es necesario)
-ssh -i /home/desarrollo/.ssh/Entourage_keypar.pem ec2-user@18.184.20.26 "pm2 restart realstate-app"
+ssh -i /home/desarrollo/.ssh/Entourage_keypar.pem ec2-user@35.158.147.36 "pm2 restart realstate-app"
 
 # Health check
-ssh -i /home/desarrollo/.ssh/Entourage_keypar.pem ec2-user@18.184.20.26 "curl -I http://localhost:3003/health"
+ssh -i /home/desarrollo/.ssh/Entourage_keypar.pem ec2-user@35.158.147.36 "curl -I http://localhost:3003/health"
 ```
 
 ## Proceso de Deploy Automático
@@ -77,14 +77,14 @@ El hook post-receive ejecuta automáticamente:
 ```bash
 # El servidor tiene cambios locales
 # Conectarse y revisar:
-ssh -i /home/desarrollo/.ssh/Entourage_keypar.pem ec2-user@18.184.20.26 "cd /var/www/realstate && git status"
+ssh -i /home/desarrollo/.ssh/Entourage_keypar.pem ec2-user@35.158.147.36 "cd /var/www/realstate && git status"
 
 # Hacer stash si es necesario:
-ssh -i /home/desarrollo/.ssh/Entourage_keypar.pem ec2-user@18.184.20.26 "cd /var/www/realstate && git stash"
+ssh -i /home/desarrollo/.ssh/Entourage_keypar.pem ec2-user@35.158.147.36 "cd /var/www/realstate && git stash"
 ```
 
 ### Error: "Network is unreachable"
-- Verificar conectividad: `ping 18.184.20.26`
+- Verificar conectividad: `ping 35.158.147.36`
 - Verificar que la clave SSH existe: `ls -la /home/desarrollo/.ssh/Entourage_keypar.pem`
 
 ### Deploy no actualiza la web
@@ -93,7 +93,7 @@ ssh -i /home/desarrollo/.ssh/Entourage_keypar.pem ec2-user@18.184.20.26 "cd /var
 git log --oneline -1
 
 # 2. Ver logs del servidor
-ssh -i /home/desarrollo/.ssh/Entourage_keypar.pem ec2-user@18.184.20.26 "pm2 logs realstate-app --lines 100"
+ssh -i /home/desarrollo/.ssh/Entourage_keypar.pem ec2-user@35.158.147.36 "pm2 logs realstate-app --lines 100"
 
 # 3. Limpiar cache del navegador (Ctrl+Shift+R)
 ```

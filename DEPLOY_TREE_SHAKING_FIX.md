@@ -136,7 +136,7 @@ Zero downtime: ✅
 
 ### Producción
 - **URL Principal**: https://realstate.dev.dreamsite.es/
-- **Health Check**: http://18.184.20.26:3000/health
+- **Health Check**: http://35.158.147.36:3003/health
 - **PM2 Status**: Online (port 3003)
 
 ### GitHub

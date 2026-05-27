@@ -31,7 +31,7 @@ export default function Select({
   const errorId = `${selectId}-error`;
   const helperId = `${selectId}-helper`;
 
-  const selectedOption = options.find((opt) => opt.value === value);
+  const selectedOption = options.find((opt) => String(opt.value) === String(value));
 
   return (
     <div className="w-full">

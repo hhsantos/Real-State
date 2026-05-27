@@ -356,7 +356,7 @@ const Lightbox = lazy(() => import('./components/ui/Lightbox'));
 ```
 Fecha:          16 de octubre de 2025, 11:56:09
 Commit:         9316bde (master)
-Servidor:       EC2 18.184.20.26 (Amazon Linux 2023)
+Servidor:       EC2 35.158.147.36 (Amazon Linux 2023)
 Dominio:        https://realstate.dev.dreamsite.es
 Puerto interno: 3003 (proxy nginx)
 PM2:            realstate-app (online, pid 529951)

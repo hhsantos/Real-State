@@ -5,7 +5,7 @@ Sistema de deploy automático específico para Real State, una aplicación React
 ## 🔑 Credenciales de Deploy
 
 **Servidor de Producción:**
-- **IP:** 18.184.20.26
+- **IP:** 35.158.147.36
 - **Usuario:** ec2-user
 - **SSH Key:** `/home/desarrollo/.ssh/Entourage_keypar.pem`
 - **Dominio:** https://realstate.dev.dreamsite.es
@@ -20,7 +20,7 @@ GIT_SSH_COMMAND='ssh -i /home/desarrollo/.ssh/Entourage_keypar.pem' git push pro
 **Git Remotes:**
 ```bash
 origin      https://github.com/hhsantos/Real-State.git (GitHub)
-production  ec2-user@18.184.20.26:/var/repo/realstate.git (Deploy)
+production  ec2-user@35.158.147.36:/var/repo/realstate.git (Deploy)
 ```
 
 **Estructura en Servidor:**

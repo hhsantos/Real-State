@@ -1,3 +1,4 @@
+import { useEffect } from 'react';
 import { useQueryState, parseAsString, parseAsInteger, parseAsArrayOf } from 'nuqs';
 import { Card, CardBody, CardHeader, Button, Select, Checkbox } from '../ui';
 import { PROPERTY_STATUS, PROPERTY_TYPES, PROPERTY_FEATURES } from '../../data/properties';
@@ -38,8 +39,8 @@ export default function PropertyFilters({ onFiltersChange }) {
     parseAsArrayOf(parseAsString).withDefault([])
   );
 
-  // Notify parent of filter changes
-  const applyFilters = () => {
+  // Sincronizar filtros automáticamente con el componente padre ante cualquier cambio en el estado de la URL
+  useEffect(() => {
     if (onFiltersChange) {
       onFiltersChange({
         status,
@@ -50,7 +51,7 @@ export default function PropertyFilters({ onFiltersChange }) {
         features,
       });
     }
-  };
+  }, [status, type, minPrice, maxPrice, bedrooms, features]); // eslint-disable-line react-hooks/exhaustive-deps
 
   // Reset all filters
   const resetFilters = () => {
@@ -144,29 +145,29 @@ export default function PropertyFilters({ onFiltersChange }) {
             <Select
               label="Desde"
               value={minPrice || ''}
-              onChange={(value) => setMinPrice(value ? parseInt(value) : null)}
+              onChange={(value) => setMinPrice(value ? parseInt(value, 10) : null)}
               options={[
                 { value: '', label: 'Sin mínimo' },
-                { value: '100000', label: '100.000 €' },
-                { value: '150000', label: '150.000 €' },
-                { value: '200000', label: '200.000 €' },
-                { value: '250000', label: '250.000 €' },
-                { value: '300000', label: '300.000 €' },
-                { value: '400000', label: '400.000 €' },
+                { value: 100000, label: '100.000 €' },
+                { value: 150000, label: '150.000 €' },
+                { value: 200000, label: '200.000 €' },
+                { value: 250000, label: '250.000 €' },
+                { value: 300000, label: '300.000 €' },
+                { value: 400000, label: '400.000 €' },
               ]}
             />
             <Select
               label="Hasta"
               value={maxPrice || ''}
-              onChange={(value) => setMaxPrice(value ? parseInt(value) : null)}
+              onChange={(value) => setMaxPrice(value ? parseInt(value, 10) : null)}
               options={[
                 { value: '', label: 'Sin máximo' },
-                { value: '200000', label: '200.000 €' },
-                { value: '250000', label: '250.000 €' },
-                { value: '300000', label: '300.000 €' },
-                { value: '400000', label: '400.000 €' },
-                { value: '500000', label: '500.000 €' },
-                { value: '600000', label: '600.000 €' },
+                { value: 200000, label: '200.000 €' },
+                { value: 250000, label: '250.000 €' },
+                { value: 300000, label: '300.000 €' },
+                { value: 400000, label: '400.000 €' },
+                { value: 500000, label: '500.000 €' },
+                { value: 600000, label: '600.000 €' },
               ]}
             />
           </div>
@@ -179,14 +180,14 @@ export default function PropertyFilters({ onFiltersChange }) {
           </h3>
           <Select
             value={bedrooms || ''}
-            onChange={(value) => setBedrooms(value ? parseInt(value) : null)}
+            onChange={(value) => setBedrooms(value ? parseInt(value, 10) : null)}
             options={[
               { value: '', label: 'Cualquiera' },
-              { value: '1', label: '1+' },
-              { value: '2', label: '2+' },
-              { value: '3', label: '3+' },
-              { value: '4', label: '4+' },
-              { value: '5', label: '5+' },
+              { value: 1, label: '1+' },
+              { value: 2, label: '2+' },
+              { value: 3, label: '3+' },
+              { value: 4, label: '4+' },
+              { value: 5, label: '5+' },
             ]}
           />
         </div>
@@ -208,15 +209,7 @@ export default function PropertyFilters({ onFiltersChange }) {
           </div>
         </div>
 
-        {/* Apply Button */}
-        <div className="pt-6 border-t">
-          <Button
-            onClick={applyFilters}
-            className="w-full"
-          >
-            Aplicar filtros
-          </Button>
-        </div>
+
       </CardBody>
     </Card>
   );

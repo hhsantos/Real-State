@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import { useState, useRef } from 'react';
 import { Helmet } from 'react-helmet-async';
 import PropertyCard from '../components/property/PropertyCard';
 import PropertyFilters from '../components/property/PropertyFilters';
@@ -22,6 +22,7 @@ export default function Properties() {
   const [filteredProperties, setFilteredProperties] = useState(properties);
   const [loading, setLoading] = useState(false);
   const [viewMode, setViewMode] = useState('grid'); // 'grid' or 'list'
+  const filterTimeoutRef = useRef(null);
 
   const breadcrumbItems = [
     { label: 'Inicio', path: '/' },
@@ -30,8 +31,14 @@ export default function Properties() {
 
   const handleFiltersChange = (filters) => {
     setLoading(true);
-    // Simulate API delay
-    setTimeout(() => {
+    
+    // Cancelar cualquier temporizador de filtro anterior si el usuario hace cambios rápidos
+    if (filterTimeoutRef.current) {
+      clearTimeout(filterTimeoutRef.current);
+    }
+
+    // Debounce de 300ms para simular la carga de API y evitar múltiples re-renders
+    filterTimeoutRef.current = setTimeout(() => {
       const filtered = filterProperties(filters);
       setFilteredProperties(filtered);
       setLoading(false);

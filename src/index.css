@@ -70,105 +70,107 @@
 }
 
 /* Base styles */
-* {
-  box-sizing: border-box;
-}
+@layer base {
+  * {
+    box-sizing: border-box;
+  }
 
-html {
-  /* Prevent font scaling in landscape on iOS */
-  -webkit-text-size-adjust: 100%;
-  /* Improve text rendering */
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-}
+  html {
+    /* Prevent font scaling in landscape on iOS */
+    -webkit-text-size-adjust: 100%;
+    /* Improve text rendering */
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+  }
 
-body {
-  margin: 0;
-  padding: 0;
-  min-height: 100vh;
-  font-family: var(--font-sans);
-  font-size: 1rem; /* 16px - MUST for mobile inputs per AGENTS.md */
-  line-height: 1.5;
-  color: #111827;
-  background-color: #ffffff;
-  /* Prevent double-tap zoom - MUST per AGENTS.md */
-  touch-action: manipulation;
-  /* Custom tap highlight color */
-  -webkit-tap-highlight-color: rgba(71, 85, 144, 0.1);
-}
+  body {
+    margin: 0;
+    padding: 0;
+    min-height: 100vh;
+    font-family: var(--font-sans);
+    font-size: 1rem; /* 16px - MUST for mobile inputs per AGENTS.md */
+    line-height: 1.5;
+    color: #111827;
+    background-color: #ffffff;
+    /* Prevent double-tap zoom - MUST per AGENTS.md */
+    touch-action: manipulation;
+    /* Custom tap highlight color */
+    -webkit-tap-highlight-color: rgba(71, 85, 144, 0.1);
+  }
 
-/* Focus styles - MUST be visible per AGENTS.md */
-:focus-visible {
-  outline: 2px solid #475590;
-  outline-offset: 2px;
-}
+  /* Focus styles - MUST be visible per AGENTS.md */
+  :focus-visible {
+    outline: 2px solid #475590;
+    outline-offset: 2px;
+  }
 
-/* Remove default focus for mouse users, keep for keyboard */
-:focus:not(:focus-visible) {
-  outline: none;
-}
+  /* Remove default focus for mouse users, keep for keyboard */
+  :focus:not(:focus-visible) {
+    outline: none;
+  }
 
-/* Links - MUST be semantic per AGENTS.md */
-a {
-  color: #3B4A7A;
-  text-decoration: none;
-  transition: color var(--duration-fast) var(--ease-out);
-}
+  /* Links - MUST be semantic per AGENTS.md */
+  a {
+    color: #3B4A7A;
+    text-decoration: none;
+    transition: color var(--duration-fast) var(--ease-out);
+  }
 
-a:hover {
-  color: #2F3B61;
-  text-decoration: underline;
-}
+  a:hover {
+    color: #2F3B61;
+    text-decoration: underline;
+  }
 
-/* Buttons - Ensure proper touch targets */
-button {
-  /* MUST: Touch targets ≥24px desktop, ≥44px mobile per AGENTS.md */
-  min-height: var(--touch-target-desktop);
-  font-family: inherit;
-  cursor: pointer;
-  touch-action: manipulation;
-}
-
-@media (max-width: 768px) {
+  /* Buttons - Ensure proper touch targets */
   button {
-    min-height: var(--touch-target-min);
+    /* MUST: Touch targets ≥24px desktop, ≥44px mobile per AGENTS.md */
+    min-height: var(--touch-target-desktop);
+    font-family: inherit;
+    cursor: pointer;
+    touch-action: manipulation;
   }
-}
 
-/* Input styles - MUST font-size ≥16px on mobile per AGENTS.md */
-input,
-textarea,
-select {
-  font-family: inherit;
-  font-size: 1rem; /* 16px minimum for mobile */
-}
-
-/* Headings hierarchy - MUST per AGENTS.md */
-h1, h2, h3, h4, h5, h6 {
-  font-weight: 600;
-  line-height: 1.25;
-  /* scroll-margin-top for anchor links - MUST per AGENTS.md */
-  scroll-margin-top: 5rem;
-}
-
-h1 {
-  font-size: 3rem;
   @media (max-width: 768px) {
+    button {
+      min-height: var(--touch-target-min);
+    }
+  }
+
+  /* Input styles - MUST font-size ≥16px on mobile per AGENTS.md */
+  input,
+  textarea,
+  select {
+    font-family: inherit;
+    font-size: 1rem; /* 16px minimum for mobile */
+  }
+
+  /* Headings hierarchy - MUST per AGENTS.md */
+  h1, h2, h3, h4, h5, h6 {
+    font-weight: 600;
+    line-height: 1.25;
+    /* scroll-margin-top for anchor links - MUST per AGENTS.md */
+    scroll-margin-top: 5rem;
+  }
+
+  h1 {
+    font-size: 3rem;
+    @media (max-width: 768px) {
+      font-size: 1.875rem;
+    }
+  }
+
+  h2 {
+    font-size: 2.25rem;
+    @media (max-width: 768px) {
+      font-size: 1.5rem;
+    }
+  }
+
+  h3 {
     font-size: 1.875rem;
-  }
-}
-
-h2 {
-  font-size: 2.25rem;
-  @media (max-width: 768px) {
-    font-size: 1.5rem;
-  }
-}
-
-h3 {
-  font-size: 1.875rem;
-  @media (max-width: 768px) {
-    font-size: 1.25rem;
+    @media (max-width: 768px) {
+      font-size: 1.25rem;
+    }
   }
 }
 

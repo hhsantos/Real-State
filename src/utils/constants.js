@@ -89,4 +89,6 @@ export const SEO = {
     'Madrid',
     'construcción',
   ],
+  DEFAULT_OG_IMAGE: 'https://images.unsplash.com/photo-1600596542815-ffad4c1539a9?w=1200&h=630&fit=crop&q=80',
+  SITE_URL: 'https://realstate.dev.dreamsite.es',
 };

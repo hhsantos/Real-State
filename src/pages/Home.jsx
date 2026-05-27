@@ -26,6 +26,22 @@ export default function Home() {
       <Helmet>
         <title>{SEO.TITLE}</title>
         <meta name="description" content={SEO.DESCRIPTION} />
+        
+        {/* Open Graph / Facebook / WhatsApp */}
+        <meta property="og:type" content="website" />
+        <meta property="og:url" content={SEO.SITE_URL} />
+        <meta property="og:title" content={SEO.TITLE} />
+        <meta property="og:description" content={SEO.DESCRIPTION} />
+        <meta property="og:image" content={SEO.DEFAULT_OG_IMAGE} />
+        <meta property="og:image:width" content="1200" />
+        <meta property="og:image:height" content="630" />
+
+        {/* Twitter / X */}
+        <meta name="twitter:card" content="summary_large_image" />
+        <meta name="twitter:url" content={SEO.SITE_URL} />
+        <meta name="twitter:title" content={SEO.TITLE} />
+        <meta name="twitter:description" content={SEO.DESCRIPTION} />
+        <meta name="twitter:image" content={SEO.DEFAULT_OG_IMAGE} />
       </Helmet>
 
       {/* Hero Section - First impression with main CTA */}

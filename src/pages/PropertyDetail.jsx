@@ -2,6 +2,7 @@ import { useParams, Link } from 'react-router-dom';
 import { Helmet } from 'react-helmet-async';
 import { useState } from 'react';
 import { getPropertyById } from '../data/properties';
+import { SEO } from '../utils/constants';
 import { 
   MapPin, Bed, Bath, Maximize, Home as HomeIcon, 
   Calendar, Phone, Mail 
@@ -47,6 +48,22 @@ export default function PropertyDetail() {
       <Helmet>
         <title>{property.title} - Real State</title>
         <meta name="description" content={property.description} />
+
+        {/* Open Graph / Facebook / WhatsApp */}
+        <meta property="og:type" content="article" />
+        <meta property="og:url" content={`${SEO.SITE_URL}/propiedades/${property.id}`} />
+        <meta property="og:title" content={`${property.title} - Real State`} />
+        <meta property="og:description" content={property.description} />
+        <meta property="og:image" content={property.images && property.images.length > 0 ? property.images[0].replace('w=800&h=600', 'w=1200&h=630') : SEO.DEFAULT_OG_IMAGE} />
+        <meta property="og:image:width" content="1200" />
+        <meta property="og:image:height" content="630" />
+
+        {/* Twitter / X */}
+        <meta name="twitter:card" content="summary_large_image" />
+        <meta name="twitter:url" content={`${SEO.SITE_URL}/propiedades/${property.id}`} />
+        <meta name="twitter:title" content={`${property.title} - Real State`} />
+        <meta name="twitter:description" content={property.description} />
+        <meta name="twitter:image" content={property.images && property.images.length > 0 ? property.images[0].replace('w=800&h=600', 'w=1200&h=630') : SEO.DEFAULT_OG_IMAGE} />
       </Helmet>
 
       <div className="bg-gray-50 min-h-screen">

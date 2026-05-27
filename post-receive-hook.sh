@@ -49,11 +49,11 @@ do
             error_exit "Build output not found - dist/index.html missing"
         fi
         
-        # Copiar archivos de configuración del servidor
+        # Verificar y configurar archivos del servidor
         log "📋 Configurando archivos del servidor..."
-        cp server.mjs $WORK_TREE/ 2>/dev/null || log "⚠️ server.mjs not found in repo"
-        cp ecosystem.config.cjs $WORK_TREE/ 2>/dev/null || log "⚠️ ecosystem.config.cjs not found in repo"
-        cp .env.production $WORK_TREE/.env 2>/dev/null || log "⚠️ .env.production not found in repo"
+        [ -f "$WORK_TREE/server.mjs" ] || log "⚠️ server.mjs not found in repo"
+        [ -f "$WORK_TREE/ecosystem.config.cjs" ] || log "⚠️ ecosystem.config.cjs not found in repo"
+        cp $WORK_TREE/.env.production $WORK_TREE/.env 2>/dev/null || log "⚠️ .env.production not found in repo"
         
         # Instalar dependencias del servidor de producción
         log "🖥️ Instalando dependencias del servidor..."
